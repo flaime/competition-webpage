@@ -11,18 +11,20 @@ const SetUrl = (competition: string, router: NextRouter) => {
 
 interface HeaderSearchProps {
     competitions: Competiton[];
+    liveCompetition: string[];
 }
 
 const useStyles = createStyles((theme) => ({
 
 }))
 
-export function PreConfiguredHeadermenue({ competitions }: HeaderSearchProps) {
+export function PreConfiguredHeadermenue({ competitions, liveCompetition }: HeaderSearchProps) {
     const { classes } = useStyles();
     const router = useRouter();
 
+
     return (
-        <HeaderMenu links={
+        <HeaderMenu liveCompetitions={liveCompetition} links={
             [{
                 label: "Tävlingar",
                 links: competitions.map(competition => {

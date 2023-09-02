@@ -1,19 +1,40 @@
 
-import { createStyles, Table, Progress, Anchor, Text, Group, ScrollArea, Container, Avatar, BadgeStylesNames } from '@mantine/core';
+import { Table, Text, Group, ScrollArea, Container, Avatar } from '@mantine/core';
 import { Race } from './entities';
 
 
 function getClubLoggo(clubbName: string): string | undefined {
+    const cleanClubName = clubbName
+        .replace(" ", "")
+        .replace("1","")
+        .replace("2", "")
+        .replace("3", "")
+        .replace("4", "")
+        .replace("5", "")
+        .replace("6", "")
+        .replace("7", "")
+        .replace("8", "")
+        .replace("9", "")
 
-    if (clubbName === "Tibro")
-      return "/images/tibroLoggo.jpeg"
-    else if (clubbName === "Örnsberg")
-      return "/images/ÖrnsbergLoggo.jpeg"
-    else if (clubbName === "Stokholm")
-      return "/images/SPKLoggo.gif"
-    else
-      return undefined
-  }
+    switch (cleanClubName) {
+        case "Stokholm":
+        case "SPK":
+            return "/images/SPKLoggo.gif"
+        case "Huskvarna":
+            return "/images/HuskvarnaLogga.webp"
+        case "Malmö":
+            return "/images/MalmöLogga.png"
+        case 'Tibro':
+            return "/images/tibroLoggo.jpeg"
+        case 'Kungälv':
+            return "/images/kungälvLogga.png"
+        case 'Örnsberg':
+        case 'ÖKS':
+            return "/images/ÖrnsbergLoggo.jpeg"
+        default:
+            return undefined
+    }
+}
 
 export default function getRace(race:Race) {
   //export function TableReviews({ data }: TableReviewsProps) {
@@ -44,52 +65,6 @@ export default function getRace(race:Race) {
     </tr>
   })
 
-  /*const rows = data.map((row) => {
-    const totalReviews = row.reviews.negative + row.reviews.positive;
-    const positiveReviews = (row.reviews.positive / totalReviews) * 100;
-    const negativeReviews = (row.reviews.negative / totalReviews) * 100;
-
-    return (
-      <tr key={row.title}>
-        <td>
-          <Anchor<'a'> size="sm" onClick={(event) => event.preventDefault()}>
-            {row.title}
-          </Anchor>
-        </td>
-        <td>{row.year}</td>
-        <td>
-          <Anchor<'a'> size="sm" onClick={(event) => event.preventDefault()}>
-            {row.author}
-          </Anchor>
-        </td>
-        <td>{Intl.NumberFormat().format(totalReviews)}</td>
-        <td>
-          <Group position="apart">
-            <Text size="xs" color="teal" weight={700}>
-              {positiveReviews.toFixed(0)}%
-            </Text>
-            <Text size="xs" color="red" weight={700}>
-              {negativeReviews.toFixed(0)}%
-            </Text>
-          </Group>
-          <Progress
-            classNames={{ bar: classes.progressBar }}
-            sections={[
-              {
-                value: positiveReviews,
-                color: theme.colorScheme === 'dark' ? theme.colors.teal[9] : theme.colors.teal[6],
-              },
-              {
-                value: negativeReviews,
-                color: theme.colorScheme === 'dark' ? theme.colors.red[9] : theme.colors.red[6],
-              },
-            ]}
-          />
-        </td>
-      </tr>
-    );
-  });*/
-
   return (
     <Container size="lg" py="xl">
       <ScrollArea>
@@ -104,7 +79,6 @@ export default function getRace(race:Race) {
           </thead>
           <tbody>
             {rows}
-
           </tbody>
         </Table>
       </ScrollArea>

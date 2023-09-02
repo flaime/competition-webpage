@@ -1,10 +1,8 @@
-import { createStyles, Header, Avatar, Menu, Group, Center, Burger, Container, Image } from '@mantine/core';
+import { createStyles, Header, Avatar, Menu, Button, Group, Center, Burger, Container, Image } from '@mantine/core';
 import { useDisclosure, useElementSize } from '@mantine/hooks';
 import { IconChevronDown } from '@tabler/icons';
-import { MantineLogo } from '@mantine/ds';
-import { randomBytes } from 'crypto';
-import { useState } from 'react';
 import Link from 'next/link';
+import Pulsing from "./pulsing/Pulsing";
 
 const useStyles = createStyles((theme) => ({
   inner: {
@@ -53,10 +51,11 @@ const useStyles = createStyles((theme) => ({
 }));
 
 interface HeaderSearchProps {
+  liveCompetitions: string[];
   links: { label: string; links: { label: string, onPress: (comp: string) => void }[] }[];
 }
 
-export function HeaderMenu({ links }: HeaderSearchProps) {
+export function HeaderMenu({ links, liveCompetitions }: HeaderSearchProps) {
   const [opened, { toggle }] = useDisclosure(false);
   const { classes } = useStyles();
 
@@ -102,9 +101,18 @@ export function HeaderMenu({ links }: HeaderSearchProps) {
         <div className={classes.inner}>
           <Group>
             <Link href={"/"}>
-              <Image height={56 * 0.7} className={classes.backround} src={"/images/drakbonLoggaAndText.webp"} />
+              <Image height={56 * 0.7} className={classes.backround} src={"/images/drakbonLoggaAndText.webp"} alt={"Logo of the page"}/>
             </Link>
           </Group>
+              { liveCompetitions ?
+                  <Group spacing={5} className={classes.links}>
+                    <Link href={'/' + liveCompetitions[0]}>
+                      <Button variant="outline" color={"red"}>
+                          <Pulsing /> {"LIVE - " + liveCompetitions[0]}
+                      </Button>
+                    </Link>
+              </Group>: null
+              }
           <Group spacing={5} className={classes.links}>
             {items}
           </Group>

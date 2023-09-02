@@ -1,12 +1,16 @@
 
-import { Title, createStyles, Table, Progress, Anchor, Text, Group, ScrollArea, Container, Avatar, BadgeStylesNames, Card, Grid, ActionIcon } from '@mantine/core';
-import { Race } from './entities';
-import getRaceBlock from './raceBlock';
-import { IconSettings, IconMapPin, IconCalendarEvent, IconInfoCircle,TablerIcon } from '@tabler/icons';
+import {
+    Text,
+    Grid,
+    ActionIcon,
+    Skeleton
+} from '@mantine/core';
 
 interface InfoTextProps {
   text:string,
   icon?: React.ReactElement,
+  loading: boolean,
+  loadingProcent:number
 }
 
 export function InfoText(prop: InfoTextProps) {
@@ -21,7 +25,11 @@ export function InfoText(prop: InfoTextProps) {
         </ActionIcon>
       </Grid.Col>
       <Grid.Col span={"auto"}>
-        <Text > {prop.text}</Text>
+          {
+              prop.loading ?
+                  <Text>  <Skeleton height={8} mt={6} radius="xl" width={ prop.loadingProcent + "%"}/> </Text> :
+                  <Text>  { prop.text } </Text>
+          }
       </Grid.Col>
     </Grid>
 

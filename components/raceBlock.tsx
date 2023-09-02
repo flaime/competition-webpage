@@ -1,7 +1,6 @@
 
-import { createStyles, Table, Progress, Anchor, Text, Group, ScrollArea, Container, Avatar, BadgeStylesNames, Card, Button, Center, Grid, Badge, SimpleGrid } from '@mantine/core';
+import {  Text, Card, Button, Grid, Badge } from '@mantine/core';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { Race } from './entities';
 import getRace from './race';
 
@@ -11,7 +10,6 @@ interface RaceBlokProps {
 }
 
 export default function getRaceBlock(props: RaceBlokProps) {
-  const router = useRouter();
   return (
     <Card withBorder radius="md" p="xl" > {/*className={classes.card}>*/}
       <Grid justify="flex-end">

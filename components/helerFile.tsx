@@ -1,7 +1,13 @@
 import { promises as fs } from 'fs'
 import path from 'path'
-import { Competiton, Metadata } from './entities'
+import {Competiton, LiveData } from './entities'
 
+
+export const getLiveCompetition = async (): Promise<LiveData> => {
+    const rawFileContents = await fs.readFile(path.join(process.cwd(), '/data/livedata.json'), 'utf8')
+    const liveCompetitions = JSON.parse(rawFileContents)
+    return liveCompetitions.liveData
+}
 
 export const getCompetitions = async (): Promise<Competiton[]> => {
     const postsDirectory = path.join(process.cwd(), '/data/competitions/')
@@ -27,29 +33,5 @@ export const getCompetitions = async (): Promise<Competiton[]> => {
     // return competitions
     return await Promise.all(competitions)
 }
-
-
-// export const getMetadata = async (): Promise<Metadata> => {
-//     const postsDirectory = path.join(process.cwd(), '/data/competitions/')
-//     const filenames = await fs.readdir(postsDirectory)
-
-//     // 'Promise<{ name: string; races: any; }>[]'
-//     const competitions: Promise<Competiton>[] = filenames.map(async (filename) => {
-//         const filePath = path.join(postsDirectory, filename)
-//         const rawFileContents = await fs.readFile(filePath, 'utf8')
-
-//         // Generally you would parse/transform the contents
-//         // For example you can transform markdown to HTML here
-
-//         const file = JSON.parse(rawFileContents)
-
-//         return {
-//             name: filename.split(".")[0] ?? "",
-//             races: file.data
-//         }
-//     })
-//     // return competitions
-//     return await Promise.all(competitions)
-// }
 
 

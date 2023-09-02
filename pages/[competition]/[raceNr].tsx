@@ -1,13 +1,10 @@
-import { useRouter } from 'next/router'
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { Card, Image, Text, Badge, Button, Group, Grid, Container, createStyles } from '@mantine/core';
-import { promises as fs } from 'fs'
-import path from 'path'
 import { Competiton, Race } from '../../components/entities';
 import getRace from '../../components/race';
 import Link from 'next/link';
 import { PreConfiguredHeadermenue } from '../../components/PreConfiguredHeadermenue';
-import { getCompetitions } from '../../components/helerFile';
+import {getCompetitions, getLiveCompetition} from '../../components/helerFile';
 
 
 const useStyles = createStyles((theme) => ({
@@ -20,28 +17,6 @@ const useStyles = createStyles((theme) => ({
   }
 }))
 
-
-// async function getData(): Promise<Competiton[]> {
-//   const postsDirectory = path.join(process.cwd(), '/data/competitions/')
-//   const filenames = await fs.readdir(postsDirectory)
-
-//   const competitions = filenames.map(async (filename) => {
-//     const filePath = path.join(postsDirectory, filename)
-//     const rawFileContents = await fs.readFile(filePath, 'utf8')
-
-//     // Generally you would parse/transform the contents
-//     // For example you can transform markdown to HTML here
-
-//     const file = JSON.parse(rawFileContents)
-
-//     return {
-//       name: filename.split(".")[0] ?? "",
-//       races: file.data
-//     } as Competiton
-//   })
-//   return await Promise.all(competitions)
-// }
-
 export const getStaticPaths: GetStaticPaths = async () => {
   const data: Competiton[] = await getCompetitions();
 
@@ -50,16 +25,22 @@ export const getStaticPaths: GetStaticPaths = async () => {
       competition: string;
       raceNr: string;
     };
-  }[] = data.map((competiton: Competiton) => competiton.races.map(race => ({ params: { competition: competiton.name, raceNr: race.loppnummer.toString() } }))).flat()
+  }[] = data.map((competiton: Competiton) =>
+      competiton.races
+          .filter(race => race?.loppnummer != null || race?.loppnummer != undefined )
+          .filter(race => /^\d+$/.test(race.loppnummer.toString())) //only races that is a numbers
+          .map(race => ({ params: { competition: competiton.name, raceNr: race.loppnummer.toString() } }))).flat()
+
   return {
     paths: pathsWithParams,
-    fallback: true
+    fallback: false
   }
 }
 
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const data: Competiton[] = await getCompetitions();
+  const liveCompetition = await getLiveCompetition()
 
   const competition = context.params?.competition
   const raceNr = context.params?.raceNr
@@ -74,6 +55,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       competitionData: competitionData,
       races: race,
       competitions: data,
+      liveCompetitions: liveCompetition.name ? [liveCompetition.name] : []
     },
   }
 }
@@ -83,7 +65,8 @@ interface RacePageProps {
   competition: string,
   competitionData?: Competiton,
   races?: Race,
-  competitions: Competiton[]
+  competitions: Competiton[],
+  liveCompetitions: string[]
 }
 
 const previsuRace = (competition: Competiton, activRaceNr: string) => {
@@ -119,7 +102,7 @@ export default function CommentPage(prop: RacePageProps) {
 
   return (
     <>
-      <PreConfiguredHeadermenue competitions={prop.competitions} />
+      <PreConfiguredHeadermenue competitions={prop.competitions} liveCompetition={prop.liveCompetitions}/>
       <Container my="md">
         {prop.races ?
           <Card shadow="sm" p="lg" radius="md" withBorder>
@@ -168,9 +151,9 @@ export default function CommentPage(prop: RacePageProps) {
 
           : <>
             <h1>Lopp nr {prop.raceNr} för {prop.competition} existerar inte</h1>
-            <a href='/'>
+            <Link href='/'>
               <Button >Tryck här för komma till startisdan</Button>
-            </a>
+            </Link>
           </>
 
         }

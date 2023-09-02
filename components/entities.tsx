@@ -1,8 +1,8 @@
 export interface Competiton {
     name: string,
-    info:string|null,
-    place:string|null,
-    dates:string|null,
+    info: string | null,
+    place: string | null,
+    dates: string | null,
     races: Race[]
 }
 
@@ -31,9 +31,9 @@ export interface File {
 export interface LiveData {
     url: string;
     info: string;
-    name:string;
+    name: string;
     dates: string;
-    place:string;
+    place: string;
 }
 
 export interface Metadata {
