@@ -4,7 +4,7 @@ import {Competiton, LiveData } from './entities'
 
 
 export const getLiveCompetition = async (): Promise<LiveData> => {
-    const rawFileContents = await fs.readFile(path.join(process.cwd(), '/data/livedata.json'), 'utf8')
+    const rawFileContents = await fs.readFile(path.join(process.cwd(), '/data/liveData.json'), 'utf8')
     const liveCompetitions = JSON.parse(rawFileContents)
     return liveCompetitions.liveData
 }
