@@ -75,11 +75,11 @@ export function HeaderMenu({ links, liveCompetitions }: HeaderSearchProps) {
       <Menu.Item key={item.label} onClick={() => { item.onPress(item.label) }}>{item.label}</Menu.Item>
     ))
 
-    const menuItems2 = liveCompetitions?.map((item) => (
-        <Menu.Item key={item} >
-          <Link href={'/' + "liveCompetitions[0]"}>
+    const menuItems2 = liveCompetitions?.map((liveCompetition) => (
+        <Menu.Item key={liveCompetition} >
+          <Link href={'/' + liveCompetition}>
             <Button variant="outline" color={"red"}>
-              <Pulsing/> {"LIVE - " + item}
+              <Pulsing/> {"LIVE - " + liveCompetition}
             </Button>
           </Link>
         </Menu.Item>
