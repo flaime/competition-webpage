@@ -9,10 +9,11 @@ import {
   Container,
   Image,
 } from '@mantine/core';
-import {useDisclosure, useMediaQuery} from '@mantine/hooks';
+import {useMediaQuery} from '@mantine/hooks';
 import {IconChevronDown} from '@tabler/icons';
 import Link from 'next/link';
 import Pulsing from "./pulsing/Pulsing";
+import {useState} from "react";
 
 const useStyles = createStyles((theme) => ({
   inner: {
@@ -66,16 +67,16 @@ interface HeaderSearchProps {
 }
 
 export function HeaderMenu({ links, liveCompetitions }: HeaderSearchProps) {
-  const [opened, { toggle }] = useDisclosure(false);
+  const [opened, setOpened] = useState(false);
   const { classes } = useStyles();
   const smallScreen = useMediaQuery('(min-width: 56.25em)');
 
   const items = links.map((link) => {
-    const menuItems = link.links?.map((item) => (
+    const regularCompetitionMenuItems = link.links?.map((item) => (
       <Menu.Item key={item.label} onClick={() => { item.onPress(item.label) }}>{item.label}</Menu.Item>
     ))
 
-    const menuItems2 = liveCompetitions?.map((liveCompetition) => (
+    const liceCompetitionMenuItems = liveCompetitions?.map((liveCompetition) => (
         <Menu.Item key={liveCompetition} >
           <Link href={'/' + liveCompetition}>
             <Button variant="outline" color={"red"}>
@@ -85,9 +86,9 @@ export function HeaderMenu({ links, liveCompetitions }: HeaderSearchProps) {
         </Menu.Item>
     ))
 
-    if (menuItems) {
+    if (regularCompetitionMenuItems) {
       return (
-        <Menu key={link.label} trigger="click" exitTransitionDuration={0} >
+        <Menu key={link.label} trigger="click" onOpen={() => setOpened(true)} onClose={() => setOpened(false)} exitTransitionDuration={0} >
           <Menu.Target>
             {smallScreen ?
                 <div className={classes.links}>
@@ -104,12 +105,12 @@ export function HeaderMenu({ links, liveCompetitions }: HeaderSearchProps) {
                 :
                 <div className={classes.burger}>
                   <Center>
-                    <Burger opened={opened} onClick={toggle} size="sm"/>
+                    <Burger opened={opened} size="sm"/>
                   </Center>
                 </div>
             }
           </Menu.Target>
-          <Menu.Dropdown>{menuItems2.concat(menuItems)}</Menu.Dropdown>
+          <Menu.Dropdown>{liceCompetitionMenuItems.concat(regularCompetitionMenuItems)}</Menu.Dropdown>
         </Menu>
       );
     }
