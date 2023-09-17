@@ -1,6 +1,16 @@
-import { createStyles, Header, Avatar, Menu, Button, Group, Center, Burger, Container, Image } from '@mantine/core';
-import { useDisclosure, useElementSize } from '@mantine/hooks';
-import { IconChevronDown } from '@tabler/icons';
+import {
+  createStyles,
+  Header,
+  Menu,
+  Button,
+  Group,
+  Center,
+  Burger,
+  Container,
+  Image,
+} from '@mantine/core';
+import {useDisclosure, useMediaQuery} from '@mantine/hooks';
+import {IconChevronDown} from '@tabler/icons';
 import Link from 'next/link';
 import Pulsing from "./pulsing/Pulsing";
 
@@ -58,27 +68,48 @@ interface HeaderSearchProps {
 export function HeaderMenu({ links, liveCompetitions }: HeaderSearchProps) {
   const [opened, { toggle }] = useDisclosure(false);
   const { classes } = useStyles();
+  const smallScreen = useMediaQuery('(min-width: 56.25em)');
 
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
       <Menu.Item key={item.label} onClick={() => { item.onPress(item.label) }}>{item.label}</Menu.Item>
-    ));
+    ))
+
+    const menuItems2 = liveCompetitions?.map((item) => (
+        <Menu.Item key={item} >
+          <Link href={'/' + "liveCompetitions[0]"}>
+            <Button variant="outline" color={"red"}>
+              <Pulsing/> {"LIVE - " + item}
+            </Button>
+          </Link>
+        </Menu.Item>
+    ))
 
     if (menuItems) {
       return (
-        <Menu key={link.label} trigger="hover" exitTransitionDuration={0} >
+        <Menu key={link.label} trigger="click" exitTransitionDuration={0} >
           <Menu.Target>
-            <a
-              className={classes.link}
-              onClick={(event) => event.preventDefault()}
-            >
-              <Center>
-                <span className={classes.linkLabel}>{link.label}</span>
-                <IconChevronDown size={12} stroke={1.5} />
-              </Center>
-            </a>
+            {smallScreen ?
+                <div className={classes.links}>
+                  <a
+                      className={classes.link}
+                      onClick={(event) => event.preventDefault()}
+                  >
+                    <Center>
+                      <span className={classes.linkLabel}>{link.label}</span>
+                      <IconChevronDown size={12} stroke={1.5}/>
+                    </Center>
+                  </a>
+                </div>
+                :
+                <div className={classes.burger}>
+                  <Center>
+                    <Burger opened={opened} onClick={toggle} size="sm"/>
+                  </Center>
+                </div>
+            }
           </Menu.Target>
-          <Menu.Dropdown>{menuItems}</Menu.Dropdown>
+          <Menu.Dropdown>{menuItems2.concat(menuItems)}</Menu.Dropdown>
         </Menu>
       );
     }
@@ -104,19 +135,9 @@ export function HeaderMenu({ links, liveCompetitions }: HeaderSearchProps) {
               <Image height={56 * 0.7} className={classes.backround} src={"/images/drakbonLoggaAndText.webp"} alt={"Logo of the page"}/>
             </Link>
           </Group>
-              { liveCompetitions ?
-                  <Group spacing={5} className={classes.links}>
-                    <Link href={'/' + liveCompetitions[0]}>
-                      <Button variant="outline" color={"red"}>
-                          <Pulsing /> {"LIVE - " + liveCompetitions[0]}
-                      </Button>
-                    </Link>
-              </Group>: null
-              }
-          <Group spacing={5} className={classes.links}>
+          <Group spacing={5} >
             {items}
           </Group>
-          <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" />
         </div>
       </Container>
     </Header>
