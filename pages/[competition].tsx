@@ -1,5 +1,5 @@
 import {GetStaticProps, GetStaticPaths} from 'next';
-import {Container, createStyles, Stack, Title, Loader, Skeleton} from '@mantine/core';
+import {Container, createStyles, Stack, Title, Loader} from '@mantine/core';
 import {Competiton} from '../components/entities';
 import {getRacesBloks} from '../components/races';
 import {PreConfiguredHeadermenue} from '../components/PreConfiguredHeadermenue';
@@ -77,7 +77,7 @@ export default function CompetitonPage(prop: CompetitionPageProps) {
     }, [])
 
     useEffect(() => {
-        if (prop.live) {
+        if (prop.live) { //TODO fix link
             fetch('https://script.googleusercontent.com/a/macros/drakbatslandslaget.se/echo?user_content_key=B-peA7m_xqByAjMqOTXGWdTkzjXQz9z94H6uTgohQZc3xGWcVtC4ss_6MTpr2Pl7GlKxVMNG1CpVn8pszRZLI8hAcLZSLRcSOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKC4XXoRycefbuMA4o5UrXTyMdGZwidgSKtLhyHCd5hHayAs0y1hvN1V1-q-NOqS9oO9Zw_XAR0GF_nfqYc9ipWGggkwgJY3sYuywEA2Y53QVU0iLPXWNWdlLTvVHa578XEDynFSDancgg&lib=MI1MflFJSMKI6lDfch9W3KJGS7CWxxh_e')
                 .then(result => result.json())
                 .then(result => result.data)
@@ -138,6 +138,7 @@ export default function CompetitonPage(prop: CompetitionPageProps) {
                         prop.competitionData ? getRacesBloks({
                             races: competitionData?.races || [],
                             competitionName: prop.competition,
+                            liveCompetition: prop.live
                         }) : <p>fel</p>
                 }
             </Container>

@@ -8,6 +8,7 @@ import getRaceBlock from './raceBlock';
 interface RaceBloksProps {
     races: Race[],
     competitionName: string,
+    liveCompetition?: boolean
 }
 
 export function getRacesBloks(props: RaceBloksProps) {
@@ -24,7 +25,7 @@ export function getRacesBloks(props: RaceBloksProps) {
                 ).map(race =>
                     <Grid.Col key={race.loppInfo + race.loppnummer.toString() + race.loppTid + Math.random()} xs={4}
                               color={"blue.8"}>
-                        {getRaceBlock({race: race, competitionName: props.competitionName})}
+                        {getRaceBlock({race: race, competitionName: props.competitionName, liveRace: props.liveCompetition})}
                     </Grid.Col>)
             }
         </Grid>

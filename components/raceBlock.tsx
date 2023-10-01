@@ -6,7 +6,8 @@ import getRace from './race';
 
 interface RaceBlokProps {
   race: Race,
-  competitionName: string
+  competitionName: string,
+  liveRace?: boolean
 }
 
 export default function getRaceBlock(props: RaceBlokProps) {
@@ -34,13 +35,16 @@ export default function getRaceBlock(props: RaceBlokProps) {
             {"Lopp: " + props.race.loppnummer}
           </Text>
         </Grid.Col>
-        <Grid.Col span={"content"}>
+
+        { props.liveRace !== true ? <Grid.Col span={"content"}>
           <Link href={'/' + props.competitionName + '/' + props.race.loppnummer}>
             <Button variant="default" size="xs" compact >
               Gå till lopp
             </Button>
           </Link>
         </Grid.Col>
+            :null
+        }
       </Grid>
       {/*items*/}
       {getRace(props.race)}
