@@ -4,7 +4,7 @@ import {Competiton} from '../components/entities';
 import {getRacesBloks} from '../components/races';
 import {PreConfiguredHeadermenue} from '../components/PreConfiguredHeadermenue';
 import {getCompetitions, getLiveCompetition} from '../components/helerFile';
-import {IconMapPin, IconCalendarEvent, IconInfoCircle} from '@tabler/icons';
+import {IconMapPin, IconCalendarEvent, IconInfoCircle} from '@tabler/icons-react';
 import {InfoText} from '../components/InfoText';
 import {useEffect, useState} from "react";
 

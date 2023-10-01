@@ -10,7 +10,7 @@ import {
   Image,
 } from '@mantine/core';
 import {useMediaQuery} from '@mantine/hooks';
-import {IconChevronDown} from '@tabler/icons';
+import {IconChevronDown} from '@tabler/icons-react';
 import Link from 'next/link';
 import Pulsing from "./pulsing/Pulsing";
 import {useState} from "react";
@@ -88,7 +88,7 @@ export function HeaderMenu({ links, liveCompetitions }: HeaderSearchProps) {
 
     if (regularCompetitionMenuItems) {
       return (
-        <Menu key={link.label} trigger="click" onOpen={() => setOpened(true)} onClose={() => setOpened(false)} exitTransitionDuration={0} >
+        <Menu key={link.label} trigger="click" onOpen={() => setOpened(true)} onClose={() => setOpened(false)} transitionProps={{exitDuration:0}} >
           <Menu.Target>
             {smallScreen ?
                 <div className={classes.links}>
@@ -98,7 +98,7 @@ export function HeaderMenu({ links, liveCompetitions }: HeaderSearchProps) {
                   >
                     <Center>
                       <span className={classes.linkLabel}>{link.label}</span>
-                      <IconChevronDown size={12} stroke={1.5}/>
+                      <IconChevronDown size="1rem" stroke={1.5}/>
                     </Center>
                   </a>
                 </div>
