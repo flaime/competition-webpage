@@ -76,8 +76,8 @@ export default function CompetitionPage(prop: CompetitionPageProps) {
     const {classes} = useStyles();
 
     useEffect(() => {
-        if (prop.live) { //TODO fix link
-            fetch('https://script.googleusercontent.com/a/macros/drakbatslandslaget.se/echo?user_content_key=B-peA7m_xqByAjMqOTXGWdTkzjXQz9z94H6uTgohQZc3xGWcVtC4ss_6MTpr2Pl7GlKxVMNG1CpVn8pszRZLI8hAcLZSLRcSOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKC4XXoRycefbuMA4o5UrXTyMdGZwidgSKtLhyHCd5hHayAs0y1hvN1V1-q-NOqS9oO9Zw_XAR0GF_nfqYc9ipWGggkwgJY3sYuywEA2Y53QVU0iLPXWNWdlLTvVHa578XEDynFSDancgg&lib=MI1MflFJSMKI6lDfch9W3KJGS7CWxxh_e')
+        if (prop.live && prop.liveCompetition && prop.liveCompetition.url) {
+            fetch(prop.liveCompetition.url)
                 .then(result => result.json())
                 .then(result => result.data)
                 .then((data) => {

@@ -2,6 +2,13 @@
 import { Table, Text, Group, ScrollArea, Container, Avatar } from '@mantine/core';
 import { Race } from './entities';
 
+import spk from "../public/images/SPKLoggo.gif"
+import huskvarna from "../public/images/HuskvarnaLogga.webp"
+import malmo from "../public/images/MalmöLogga.png"
+import tibro from "../public/images/tibroLoggo.jpeg"
+import kungalv from "../public/images/kungälvLogga.png"
+import ornsberg from "../public/images/ÖrnsbergLoggo.jpeg"
+
 
 function getClubLoggo(clubbName: string): string | undefined {
     const cleanClubName = clubbName
@@ -19,18 +26,18 @@ function getClubLoggo(clubbName: string): string | undefined {
     switch (cleanClubName) {
         case "Stokholm":
         case "SPK":
-            return "/images/SPKLoggo.gif"
+            return spk.src
         case "Huskvarna":
-            return "/images/HuskvarnaLogga.webp"
+            return huskvarna.src
         case "Malmö":
-            return "/images/MalmöLogga.png"
+            return malmo.src
         case 'Tibro':
-            return "/images/tibroLoggo.jpeg"
+            return tibro.src
         case 'Kungälv':
-            return "/images/kungälvLogga.png"
+            return kungalv.src
         case 'Örnsberg':
         case 'ÖKS':
-            return "/images/ÖrnsbergLoggo.jpeg"
+            return ornsberg.src
         default:
             return undefined
     }

@@ -5,6 +5,7 @@ import getRace from '../../components/race';
 import Link from 'next/link';
 import { PreConfiguredHeadermenue } from '../../components/PreConfiguredHeadermenue';
 import {getCompetitions, getLiveCompetition} from '../../components/helerFile';
+import drakbat from "../../public/images/drakbåt.jpg"
 
 
 const useStyles = createStyles((theme) => ({
@@ -108,7 +109,7 @@ export default function CommentPage(prop: RacePageProps) {
           <Card shadow="sm" p="lg" radius="md" withBorder>
             <Card.Section>
               <Image
-                src={"/images/drakbåt.jpg"}
+                src={drakbat.src}
                 height={160}
                 alt="Norway"
               />

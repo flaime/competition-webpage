@@ -15,6 +15,8 @@ import Link from 'next/link';
 import Pulsing from "./pulsing/Pulsing";
 import {useState} from "react";
 
+import drakbonLoggaAndText from "../public/images/drakbonLoggaAndText.webp"
+
 const useStyles = createStyles((theme) => ({
   inner: {
     height: 56,
@@ -133,7 +135,7 @@ export function HeaderMenu({ links, liveCompetitions }: HeaderSearchProps) {
         <div className={classes.inner}>
           <Group>
             <Link href={"/"}>
-              <Image height={56 * 0.7} className={classes.backround} src={"/images/drakbonLoggaAndText.webp"} alt={"Logo of the page"}/>
+              <Image height={56 * 0.7} className={classes.backround} src={drakbonLoggaAndText.src} alt={"Logo of the page"}/>
             </Link>
           </Group>
           <Group spacing={5} >
