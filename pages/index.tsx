@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { useRouter } from 'next/router'
 import {Competiton, LiveData} from "../components/entities"
 import { PreConfiguredHeadermenue } from '../components/PreConfiguredHeadermenue';
@@ -44,13 +43,7 @@ export default function Home({ competitions,liveData }: IndexProps) {
     <div>
       <PreConfiguredHeadermenue competitions={competitions} liveCompetition={liveData.name ? [liveData.name] : []} />
       <Container>
-        {/* {metadata.livedataActive ?
-          <p>livedata</p>
-          :
-          <NonLiveIndexPageBlock competitions={competitions} />
-        } */}
 
-        
         {metadata.livedataActive ?
           <>
             <LiveIndexPageBlock key={metadata.liveData.name} livedata={metadata.liveData} />

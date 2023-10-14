@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 
 interface LiveIndexPageBlockProps {
   competition?: Competiton,
-  clickable?: boolean,
+  clickType: "toRacePage" | "toRaceBlock" | undefined,
   loading: boolean
 }
 
@@ -23,14 +23,34 @@ const useStyles = createStyles((theme) => ({
 function randomNumber(min: number, max: number) {
   return Math.random() * (max - min) + min;
 }
+function scrollToRace(race:string) {
+  const element = document.querySelector('#race'+race)
+  if(!element) return
+  const topPos = element.getBoundingClientRect().top + window.pageYOffset
 
-export default function LiveIndexPageBlock({ competition, clickable, loading }: LiveIndexPageBlockProps) {
+  window.scrollTo({
+    top: topPos, // scroll so that the element is at the top of the view
+    behavior: 'smooth' // smooth scroll
+  })
+}
+export default function CompeitionProgram({ competition, clickType, loading }: LiveIndexPageBlockProps) {
   const router = useRouter();
   const { classes } = useStyles();
 
   const rows = competition?.races.map((race, index) => (
 
-    <tr key={race.loppnummer + (race.loppInfo ?? "") + race.loppTid + index} className={(clickable && race.banor.length > 0)? classes.onHover : undefined} onClick={() => {(clickable && race.banor.length > 0) ? router.push("/" + competition?.name + "/" + race.loppnummer) : null }}>
+    <tr
+        key={race.loppnummer + (race.loppInfo ?? "") + race.loppTid + index}
+        className={(clickType && race.banor.length > 0)? classes.onHover : undefined}
+        onClick={() => {
+          if(clickType === "toRacePage" && race.banor.length > 0)
+            router.push("/" + competition?.name + "/" + race.loppnummer)
+          else if(clickType === "toRaceBlock" && race.banor.length > 0) {
+            router.push("/" + competition?.name + "#" + race.loppnummer)
+            scrollToRace(race.loppnummer.toString())
+          } else null
+        }}
+    >
       <td>{race.loppnummer}</td>
       <td>{race.loppInfo}</td>
       <td>{race.loppTid}</td>

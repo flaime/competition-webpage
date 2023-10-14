@@ -12,7 +12,7 @@ interface RaceBlokProps {
 
 export default function getRaceBlock(props: RaceBlokProps) {
   return (
-    <Card withBorder radius="md" p="xl" > {/*className={classes.card}>*/}
+    <Card withBorder radius="md" p="xl" id={"race" + props.race.loppnummer.toString()}> {/*className={classes.card}>*/}
       <Grid justify="flex-end">
         <Grid.Col span="auto">
           <Text size="lg" weight={500} color={"blue.8"}>

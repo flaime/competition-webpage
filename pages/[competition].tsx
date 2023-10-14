@@ -7,7 +7,8 @@ import {getCompetitions, getLiveCompetition} from '../components/helerFile';
 import {IconMapPin, IconCalendarEvent, IconInfoCircle} from '@tabler/icons-react';
 import {InfoText} from '../components/InfoText';
 import React, {useEffect, useState} from "react";
-import LiveIndexPageBlock from "../components/CompeitionProgram";
+import CompeitionProgram from "../components/CompeitionProgram";
+
 
 
 const useStyles = createStyles((theme) => ({
@@ -74,6 +75,7 @@ interface CompetitionPageProps {
 
 export default function CompetitionPage(prop: CompetitionPageProps) {
     const {classes} = useStyles();
+    const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
         if (prop.live && prop.liveCompetition && prop.liveCompetition.url) {
@@ -90,6 +92,16 @@ export default function CompetitionPage(prop: CompetitionPageProps) {
                     }
                     setCompetitionData(competition)
                 })
+                .then(() => {
+                    if(window.location.hash && !scrolled) {
+                        var hash = window.location.hash.substring(1); //Puts hash in variable, and removes the # character
+                        scrollToRace(hash)
+                        setScrolled(true)
+                        // hash found
+                    } else {
+                        // No hash found
+                    }
+                })
         } else {
             setCompetitionData(prop.competitionData)
         }
@@ -99,11 +111,20 @@ export default function CompetitionPage(prop: CompetitionPageProps) {
     const [competitionData, setCompetitionData] = useState<Competiton | undefined>(undefined);
     const [open, setOpen] = useState<boolean>(false);
 
+    function scrollToRace(race:string) {
+        const element = document.querySelector('#race'+race)
+        if(!element) return
+        const topPos = element.getBoundingClientRect().top + window.pageYOffset
+
+        window.scrollTo({
+            top: topPos, // scroll so that the element is at the top of the view
+            behavior: 'smooth' // smooth scroll
+        })
+    }
+
     return (
         <>
-            {/*<PreConfiguredHeadermenue competitions={competitions}      liveCompetition={liveData.name ? [liveData.name] : []} />*/}
             <PreConfiguredHeadermenue competitions={prop.competitions} liveCompetition={prop.liveCompetition ? [prop.liveCompetition?.name] : []}/>
-            {prop.liveCompetition + "kalaskul"}
             <Container my="md">
                 <Title order={1} gradient={{from: 'cyan', to: 'indigo'}} color={"blue.9"}>{prop.competition}</Title>
                 <Stack spacing={2} justify="flex-start" className={classes.padding}>
@@ -135,7 +156,7 @@ export default function CompetitionPage(prop: CompetitionPageProps) {
                     <Space h="xs" />
                     <Collapse in={open} >
                         <Card withBorder radius="md" p="xl" className={classes.padding}>
-                            <LiveIndexPageBlock competition={competitionData} loading={competitionData == undefined} clickable={!prop.live}/>
+                            <CompeitionProgram competition={competitionData} loading={competitionData == undefined} clickType={prop.live ? "toRaceBlock" : "toRacePage"}/>
                         </Card>
                     </Collapse>
                 </Stack>
