@@ -1,12 +1,13 @@
 import {GetStaticProps, GetStaticPaths} from 'next';
-import {Container, createStyles, Stack, Title, Loader} from '@mantine/core';
-import {Competiton} from '../components/entities';
+import {Container, createStyles, Stack, Title, Loader, Collapse, Button, Card, Space} from '@mantine/core';
+import {Competiton, LiveData} from '../components/entities';
 import {getRacesBloks} from '../components/races';
 import {PreConfiguredHeadermenue} from '../components/PreConfiguredHeadermenue';
 import {getCompetitions, getLiveCompetition} from '../components/helerFile';
 import {IconMapPin, IconCalendarEvent, IconInfoCircle} from '@tabler/icons-react';
 import {InfoText} from '../components/InfoText';
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
+import LiveIndexPageBlock from "../components/CompeitionProgram";
 
 
 const useStyles = createStyles((theme) => ({
@@ -54,6 +55,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     return {
         props: {
             live: false,
+            liveCompetition: liveCompetition,
             competitions: data,
             competition: competition,
             competitionData: competitionData
@@ -63,18 +65,15 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 interface CompetitionPageProps {
     live: boolean,
-    liveCompetition?: Competiton,
+    liveCompetition?: LiveData,
     competitions: Competiton[]
     competition: string,
     competitionData?: Competiton
 }
 
 
-export default function CompetitonPage(prop: CompetitionPageProps) {
+export default function CompetitionPage(prop: CompetitionPageProps) {
     const {classes} = useStyles();
-    useEffect(() => {
-
-    }, [])
 
     useEffect(() => {
         if (prop.live) { //TODO fix link
@@ -82,8 +81,6 @@ export default function CompetitonPage(prop: CompetitionPageProps) {
                 .then(result => result.json())
                 .then(result => result.data)
                 .then((data) => {
-                    console.log("data:")
-                    console.log(data)
                     const competition: Competiton = {
                         name: prop.liveCompetition?.name ?? "ERROR",
                         info: prop.liveCompetition?.info ?? "ERROR",
@@ -100,12 +97,13 @@ export default function CompetitonPage(prop: CompetitionPageProps) {
     }, [prop.liveCompetition, prop.competitionData, prop.live])
 
     const [competitionData, setCompetitionData] = useState<Competiton | undefined>(undefined);
+    const [open, setOpen] = useState<boolean>(false);
 
     return (
         <>
-            <PreConfiguredHeadermenue competitions={prop.competitions}
-                                      liveCompetition={prop.liveCompetition?.name ? [prop.liveCompetition?.name] : []}/>
-
+            {/*<PreConfiguredHeadermenue competitions={competitions}      liveCompetition={liveData.name ? [liveData.name] : []} />*/}
+            <PreConfiguredHeadermenue competitions={prop.competitions} liveCompetition={prop.liveCompetition ? [prop.liveCompetition?.name] : []}/>
+            {prop.liveCompetition + "kalaskul"}
             <Container my="md">
                 <Title order={1} gradient={{from: 'cyan', to: 'indigo'}} color={"blue.9"}>{prop.competition}</Title>
                 <Stack spacing={2} justify="flex-start" className={classes.padding}>
@@ -132,6 +130,14 @@ export default function CompetitonPage(prop: CompetitionPageProps) {
                             loadingProcent={30}/> </>
                         : null}
 
+                    <Space h="xs" />
+                    <Button fullWidth  variant={"default"} onClick={() => setOpen(!open)} >{ open? "Stäng program" : "Visa program"}</Button>
+                    <Space h="xs" />
+                    <Collapse in={open} >
+                        <Card withBorder radius="md" p="xl" className={classes.padding}>
+                            <LiveIndexPageBlock competition={competitionData} loading={competitionData == undefined} clickable={!prop.live}/>
+                        </Card>
+                    </Collapse>
                 </Stack>
                 {
                     competitionData == undefined ? <Loader size="xl" variant="dots"/> :

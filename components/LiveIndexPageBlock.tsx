@@ -1,12 +1,10 @@
 
-import { createStyles, Table, Progress, Anchor, Text, Group, ScrollArea, Container, Avatar, BadgeStylesNames, Card, Button, Center, Grid, Badge, Skeleton } from '@mantine/core';
+import { createStyles, Table, Text, Card, Button, Grid, Badge, Skeleton } from '@mantine/core';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Competiton, LiveData, Race } from './entities';
+import { Competiton, LiveData } from './entities';
 import Pulsing from './pulsing/Pulsing';
-import getRace from './race';
 import useSWR from 'swr'
-import { json } from 'stream/consumers';
 import { useEffect, useState } from 'react';
 
 interface LiveIndexPageBlockProps {
@@ -47,11 +45,6 @@ export default function LiveIndexPageBlock({ livedata }: LiveIndexPageBlockProps
 
   const { data, error } = useSWR(livedata.url, fetcher, { refreshInterval: 15000 })
 
-  // <SWRConfig value={{
-  //   refreshInterval: 10000,
-  //   fetcher: myFetcher
-  // }}>
-
   const rows = data?.races.map((race) => (
 
     <tr key={race.loppnummer + (race.loppInfo ?? "") + race.loppTid} className={race.banor.length > 0 ? classes.onHover : undefined} onClick={() => { race.banor.length > 0 ? router.push("/" + race.loppnummer) : null }}>
@@ -78,7 +71,7 @@ export default function LiveIndexPageBlock({ livedata }: LiveIndexPageBlockProps
         <td colSpan={3}><Skeleton height={8} mt={6} radius="xl" width={randomNumber(20, 90).toString() + "%"} /></td>
       </tr>
       ])
-      if (counter > 25) { //max 25 elemetns in the list befor stop
+      if (counter > 20) { //max 20 elements in the list before stop
         clearInterval(myInterval)
       }
     }, 300);
@@ -123,7 +116,6 @@ export default function LiveIndexPageBlock({ livedata }: LiveIndexPageBlockProps
           </Grid.Col>
         </Grid>
 
-
         <Table>
           <thead>
             <tr>
@@ -133,68 +125,15 @@ export default function LiveIndexPageBlock({ livedata }: LiveIndexPageBlockProps
             </tr>
           </thead>
 
-
           {rows ?
             <tbody>{rows}</tbody>
             :
             <tbody>{loadRows}</tbody>
           }
         </Table>
-
-        {/* <Carousel slideSize="70%" slideGap="md" controlsOffset="md" dragFree align={"start"}>
-        {slides}
-      </Carousel> */}
-        {/*items*/}
-        {/* {getRace(props.race)} */}
       </Card>
 
     </>
 
   );
 }
-
-
-/*
-
-import { createStyles, Table, Progress, Anchor, Text, Group, ScrollArea, Container, Avatar, BadgeStylesNames, Card, Button, Center, Grid } from '@mantine/core';
-import { useRouter } from 'next/router';
-import { Competiton, Race } from './entities';
-import getRace from './race';
-
-interface LiveIndexPageBlockProps {
-  competitions: Competiton[]
-}
-
-const useStyles = createStyles((theme) => ({
-  onHover: {
-    cursor: "pointer"
-  }
-}))
-
-export default function LiveIndexPageBlock(props: LiveIndexPageBlockProps) {
-  const router = useRouter();
-  const { classes } = useStyles();
-  return (
-    <>
-      <Table highlightOnHover fontSize="md">
-        <thead>
-          <tr>
-            <th>Tävling</th>
-            <th>Platts</th>
-            <th>Tid</th>
-          </tr>
-        </thead>
-        <tbody>{props.competitions.map((competition) => (
-          <tr key={competition.name} className={classes.onHover} onClick={() => { router.push('/' + competition.name) }}>
-            <td><Text weight={500} color={"blue.8"}>{competition.name}</Text></td>
-            <td>{competition.place}</td>
-            <td>{competition.dates}</td>
-          </tr>
-        ))}
-        </tbody>
-      </Table>
-    </>
-
-  );
-}
-*/
