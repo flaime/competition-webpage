@@ -2,7 +2,6 @@ import {
   createStyles,
   Header,
   Menu,
-  Button,
   Group,
   Center,
   Burger,
@@ -79,18 +78,20 @@ export function HeaderMenu({ links, liveCompetitions }: HeaderSearchProps) {
     ))
 
     const liceCompetitionMenuItems = liveCompetitions?.map((liveCompetition) => (
-        <Menu.Item key={liveCompetition} >
-          <Link href={'/' + liveCompetition}>
-            <Button variant="outline" color={"red"}>
+        <Menu.Item
+            key={liveCompetition}
+            component="a"
+            href={'/' + liveCompetition}
+        >
+          <Group  spacing="xs"  className={classes.backround} >
               <Pulsing/> {"LIVE - " + liveCompetition}
-            </Button>
-          </Link>
+          </Group>
         </Menu.Item>
     ))
 
     if (regularCompetitionMenuItems) {
       return (
-        <Menu key={link.label} trigger="click" onOpen={() => setOpened(true)} onClose={() => setOpened(false)} transitionProps={{exitDuration:0}} >
+        <Menu key={link.label} onOpen={() => setOpened(true)} onClose={() => setOpened(false)} transitionProps={{exitDuration:0}} >
           <Menu.Target>
             {smallScreen ?
                 <div className={classes.links}>
