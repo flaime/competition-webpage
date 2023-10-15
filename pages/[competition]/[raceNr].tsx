@@ -56,7 +56,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       competitionData: competitionData,
       races: race,
       competitions: data,
-      liveCompetitions: liveCompetition.name ? [liveCompetition.name] : []
+      liveCompetitions: liveCompetition.livedataActive  ? [liveCompetition.liveData.name] : []
     },
   }
 }

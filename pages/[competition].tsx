@@ -1,6 +1,6 @@
 import {GetStaticProps, GetStaticPaths} from 'next';
 import {Container, createStyles, Stack, Title, Loader, Collapse, Button, Card, Space} from '@mantine/core';
-import {Competiton, LiveData} from '../components/entities';
+import {Competiton, LiveData, Metadata} from '../components/entities';
 import {getRacesBloks} from '../components/races';
 import {PreConfiguredHeadermenue} from '../components/PreConfiguredHeadermenue';
 import {getCompetitions, getLiveCompetition} from '../components/helerFile';
@@ -28,7 +28,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
         };
     }[] = data.map((competiton: Competiton) => ({params: {competition: competiton.name}}))
 
-    pathsWithParams.push({params: {competition: liveCompetition.name}})
+    if(liveCompetition.livedataActive)
+        pathsWithParams.push({params: {competition: liveCompetition.liveData.name}})
+
     return {
         paths: pathsWithParams,
         fallback: false
@@ -36,27 +38,28 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 export const getStaticProps: GetStaticProps = async (context) => {
     const data: Competiton[] = await getCompetitions();
-    const liveCompetition = await getLiveCompetition()
+    const liveCompetition:Metadata = await getLiveCompetition()
     const competition = context.params?.competition
 
-    if (competition === liveCompetition.name) { //this is a live competition
+    console.log(liveCompetition)
+    console.log(competition)
+    if (liveCompetition.livedataActive) { //this is a live competition
         return {
             props: {
                 live: true,
-                liveCompetition: liveCompetition,
+                liveCompetition: liveCompetition.liveData,
                 competitions: data,
                 competition: competition,
-                competitionData: liveCompetition
+                competitionData: liveCompetition.liveData
             },
         }
     }
 
-
-    const competitionData = data.find(competitionFrmList => competitionFrmList.name === "Drakbåts sm 2021")
+    const competitionData = data.find(competitionFrmList => competitionFrmList.name === competition)
     return {
         props: {
             live: false,
-            liveCompetition: liveCompetition,
+            liveCompetition: {},
             competitions: data,
             competition: competition,
             competitionData: competitionData
@@ -66,7 +69,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 interface CompetitionPageProps {
     live: boolean,
-    liveCompetition?: LiveData,
+    liveCompetition: LiveData | undefined,
     competitions: Competiton[]
     competition: string,
     competitionData?: Competiton
@@ -76,9 +79,8 @@ interface CompetitionPageProps {
 export default function CompetitionPage(prop: CompetitionPageProps) {
     const {classes} = useStyles();
     const [scrolled, setScrolled] = useState(false);
-
     useEffect(() => {
-        if (prop.live && prop.liveCompetition && prop.liveCompetition.url) {
+        if (prop.live && prop.liveCompetition) {
             fetch(prop.liveCompetition.url)
                 .then(result => result.json())
                 .then(result => result.data)
@@ -106,7 +108,7 @@ export default function CompetitionPage(prop: CompetitionPageProps) {
             setCompetitionData(prop.competitionData)
         }
 
-    }, [prop.liveCompetition, prop.competitionData, prop.live])
+    }, [prop.liveCompetition, prop.competitionData, prop.live, scrolled])
 
     const [competitionData, setCompetitionData] = useState<Competiton | undefined>(undefined);
     const [open, setOpen] = useState<boolean>(false);
@@ -124,7 +126,7 @@ export default function CompetitionPage(prop: CompetitionPageProps) {
 
     return (
         <>
-            <PreConfiguredHeadermenue competitions={prop.competitions} liveCompetition={prop.liveCompetition ? [prop.liveCompetition?.name] : []}/>
+            <PreConfiguredHeadermenue competitions={prop.competitions} liveCompetition={prop.live && prop.liveCompetition ? [prop.liveCompetition.name] : []}/>
             <Container my="md">
                 <Title order={1} gradient={{from: 'cyan', to: 'indigo'}} color={"blue.9"}>{prop.competition}</Title>
                 <Stack spacing={2} justify="flex-start" className={classes.padding}>

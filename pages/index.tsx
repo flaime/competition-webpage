@@ -22,7 +22,7 @@ export async function getStaticProps() {
 
 interface IndexProps {
   competitions: Competiton[],
-  liveData: LiveData
+  liveData: Metadata
 }
 
 const useStyles = createStyles((theme) => ({
@@ -41,10 +41,10 @@ export default function Home({ competitions,liveData }: IndexProps) {
 
   return (
     <div>
-      <PreConfiguredHeadermenue competitions={competitions} liveCompetition={liveData.name ? [liveData.name] : []} />
+      <PreConfiguredHeadermenue competitions={competitions} liveCompetition={liveData.livedataActive ? [liveData.liveData.name] : []} />
       <Container>
 
-        {metadata.livedataActive ?
+        { liveData && metadata.livedataActive ?
           <>
             <LiveIndexPageBlock key={metadata.liveData.name} livedata={metadata.liveData} />
           </> : null

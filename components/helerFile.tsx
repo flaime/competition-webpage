@@ -1,12 +1,12 @@
 import { promises as fs } from 'fs'
 import path from 'path'
-import {Competiton, LiveData } from './entities'
+import {Competiton, LiveData, Metadata} from './entities'
 
 
-export const getLiveCompetition = async (): Promise<LiveData> => {
+export const getLiveCompetition = async (): Promise<Metadata> => {
     const rawFileContents = await fs.readFile(path.join(process.cwd(), '/data/liveData.json'), 'utf8')
     const liveCompetitions = JSON.parse(rawFileContents)
-    return liveCompetitions.liveData
+    return liveCompetitions.livedataActive  ? liveCompetitions : {liveDataActive: false, liveData: {url: "", info: "", name: "", dates: "", place: ""}}
 }
 
 export const getCompetitions = async (): Promise<Competiton[]> => {
@@ -16,9 +16,6 @@ export const getCompetitions = async (): Promise<Competiton[]> => {
     const competitions: Promise<Competiton>[] = filenames.map(async (filename) => {
         const filePath = path.join(postsDirectory, filename)
         const rawFileContents = await fs.readFile(filePath, 'utf8')
-
-        // Generally you would parse/transform the contents
-        // For example you can transform markdown to HTML here
 
         const file = JSON.parse(rawFileContents)
 
