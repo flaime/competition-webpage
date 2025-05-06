@@ -1,0 +1,1027 @@
+{
+    "status": "success",
+    "place":"Jönköping energi arena",
+    "dates": "20/9-21/9 2025",
+    "data": [
+        {
+            "loppnummer": "",
+            "loppTid": "Lördag",
+            "loppInfo": "",
+            "banor": [],
+            "info": true
+        },
+        {
+            "loppnummer": 1,
+            "loppTid": "09:00",
+            "loppInfo": "Mix Försök 1 500",
+            "banor": [
+                {
+                    "bana": 1,
+                    "namn": "ÖKS 3",
+                    "tid": "02:32.65",
+                    "placering": 4
+                },
+                {
+                    "bana": 2,
+                    "namn": "SPK",
+                    "tid": "02:25.79",
+                    "placering": 3
+                },
+                {
+                    "bana": 3,
+                    "namn": "ÖKS 2",
+                    "tid": "02:23.12",
+                    "placering": 2
+                },
+                {
+                    "bana": 4,
+                    "namn": "Kungälv 1",
+                    "tid": "02:21.20",
+                    "placering": 1
+                },
+                {
+                    "bana": 5,
+                    "namn": "Moälven",
+                    "tid": "02:44.15",
+                    "placering": 5
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": 2,
+            "loppTid": "09:20",
+            "loppInfo": "Mix Försök 2 500",
+            "banor": [
+                {
+                    "bana": 2,
+                    "namn": "Kungälv 2",
+                    "tid": "02:25.49",
+                    "placering": 4
+                },
+                {
+                    "bana": 3,
+                    "namn": "ÖKS 1",
+                    "tid": "02:22.12",
+                    "placering": 1
+                },
+                {
+                    "bana": 4,
+                    "namn": "Malmö",
+                    "tid": "02:24.74",
+                    "placering": 2
+                },
+                {
+                    "bana": 5,
+                    "namn": "Huskvarna",
+                    "tid": "02:25.23",
+                    "placering": 3
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": 3,
+            "loppTid": "10:20",
+            "loppInfo": "Mix mellanheat 1 500",
+            "banor": [
+                {
+                    "bana": 1,
+                    "namn": "ÖKS 3",
+                    "tid": "02:32.89",
+                    "placering": 4
+                },
+                {
+                    "bana": 2,
+                    "namn": "Kungälv 2",
+                    "tid": "02:26.74",
+                    "placering": 3
+                },
+                {
+                    "bana": 3,
+                    "namn": "SPK",
+                    "tid": "02:26.06",
+                    "placering": 1
+                },
+                {
+                    "bana": 4,
+                    "namn": "Huskvarna",
+                    "tid": "02:26.48",
+                    "placering": 2
+                },
+                {
+                    "bana": 5,
+                    "namn": "Moälven",
+                    "tid": "02:42.93",
+                    "placering": 5
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": 4,
+            "loppTid": "11:20",
+            "loppInfo": "Mix Final 500",
+            "banor": [
+                {
+                    "bana": 1,
+                    "namn": "Malmö",
+                    "tid": "02:30.13",
+                    "placering": 5
+                },
+                {
+                    "bana": 2,
+                    "namn": "ÖKS 2",
+                    "tid": "02:22.18",
+                    "placering": 3
+                },
+                {
+                    "bana": 3,
+                    "namn": "ÖKS 1",
+                    "tid": "02:21.23",
+                    "placering": 2
+                },
+                {
+                    "bana": 4,
+                    "namn": "Kungälv 1",
+                    "tid": "02:20.33",
+                    "placering": 1
+                },
+                {
+                    "bana": 5,
+                    "namn": "SPK",
+                    "tid": "02:27.55",
+                    "placering": 4
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": 5,
+            "loppTid": "11:50",
+            "loppInfo": "Isabellas lopp 500",
+            "banor": [
+                {
+                    "bana": 3,
+                    "namn": "Moälven & Örnsb - North",
+                    "tid": "02:45.28",
+                    "placering": 1
+                },
+                {
+                    "bana": 4,
+                    "namn": "Rest - South",
+                    "tid": "03:00.25",
+                    "placering": 2
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": "",
+            "loppTid": "Lunchpaus 11:55-13:15",
+            "loppInfo": "",
+            "banor": [],
+            "info": true
+        },
+        {
+            "loppnummer": 6,
+            "loppTid": "13:20",
+            "loppInfo": "Open Final 500",
+            "banor": [
+                {
+                    "bana": 1,
+                    "namn": "Malmö",
+                    "tid": "02:24.05",
+                    "placering": 4
+                },
+                {
+                    "bana": 2,
+                    "namn": "ÖKS 1",
+                    "tid": "02:19.43",
+                    "placering": 2
+                },
+                {
+                    "bana": 3,
+                    "namn": "ÖKS 2",
+                    "tid": "02:19.17",
+                    "placering": 1
+                },
+                {
+                    "bana": 4,
+                    "namn": "Huskvarna",
+                    "tid": "02:26.12",
+                    "placering": 5
+                },
+                {
+                    "bana": 5,
+                    "namn": "Kungälv",
+                    "tid": "02:20.85",
+                    "placering": 3
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": 7,
+            "loppTid": "13:40",
+            "loppInfo": "Dam Försök 1 500",
+            "banor": [
+                {
+                    "bana": 2,
+                    "namn": "Kungälv",
+                    "tid": "02:40.78",
+                    "placering": 1
+                },
+                {
+                    "bana": 3,
+                    "namn": "ÖKS 1",
+                    "tid": "02:44.20",
+                    "placering": 3
+                },
+                {
+                    "bana": 4,
+                    "namn": "ÖKS 2",
+                    "tid": "02:43.98",
+                    "placering": 2
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": 8,
+            "loppTid": "14:00",
+            "loppInfo": "Dam Försök 2 500",
+            "banor": [
+                {
+                    "bana": 2,
+                    "namn": "Malmö",
+                    "tid": "02:58.56",
+                    "placering": 3
+                },
+                {
+                    "bana": 3,
+                    "namn": "Tibro",
+                    "tid": "02:53.35",
+                    "placering": 2
+                },
+                {
+                    "bana": 4,
+                    "namn": "Moälven",
+                    "tid": "02:53.05",
+                    "placering": 1
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": 9,
+            "loppTid": "14:30",
+            "loppInfo": "Open Final 2000",
+            "banor": [
+                {
+                    "bana": 1,
+                    "namn": "Huskvarna",
+                    "tid": "12:02.11",
+                    "placering": 5
+                },
+                {
+                    "bana": 2,
+                    "namn": "Malmö",
+                    "tid": "11:16.07",
+                    "placering": 4
+                },
+                {
+                    "bana": 3,
+                    "namn": "Kungälv",
+                    "tid": "11:11.17",
+                    "placering": 3
+                },
+                {
+                    "bana": 4,
+                    "namn": "ÖKS 1",
+                    "tid": "11:03.26",
+                    "placering": 2
+                },
+                {
+                    "bana": 5,
+                    "namn": "ÖKS 2",
+                    "tid": "10:58.01",
+                    "placering": 1
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": 10,
+            "loppTid": "15:00",
+            "loppInfo": "Dam mellanheat 500",
+            "banor": [
+                {
+                    "bana": 1,
+                    "namn": "ÖKS 1",
+                    "tid": "02:49.65",
+                    "placering": 1
+                },
+                {
+                    "bana": 2,
+                    "namn": "Malmö",
+                    "tid": "03:11.65",
+                    "placering": 4
+                },
+                {
+                    "bana": 3,
+                    "namn": "ÖKS 2",
+                    "tid": "02:51.71",
+                    "placering": 2
+                },
+                {
+                    "bana": 4,
+                    "namn": "Tibro",
+                    "tid": "03:01.83",
+                    "placering": 3
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": 11,
+            "loppTid": "16:00",
+            "loppInfo": "Dam Final 500",
+            "banor": [
+                {
+                    "bana": 3,
+                    "namn": "ÖKS 2",
+                    "tid": "02:43.15",
+                    "placering": 2
+                },
+                {
+                    "bana": 4,
+                    "namn": "ÖKS 1",
+                    "tid": "02:48.32",
+                    "placering": 3
+                },
+                {
+                    "bana": 5,
+                    "namn": "Moälven",
+                    "tid": "02:57.65",
+                    "placering": 5
+                },
+                {
+                    "bana": 6,
+                    "namn": "Kungälv",
+                    "tid": "02:41.18",
+                    "placering": 1
+                },
+                {
+                    "bana": 7,
+                    "namn": "Tibro",
+                    "tid": "02:55.78",
+                    "placering": 4
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": 12,
+            "loppTid": "16:20",
+            "loppInfo": "Isabellas lopp 200",
+            "banor": [
+                {
+                    "bana": 5,
+                    "namn": "Moälven & Örnsb - North",
+                    "tid": "01:08.39",
+                    "placering": 2
+                },
+                {
+                    "bana": 7,
+                    "namn": "Rest - South",
+                    "tid": "01:08.16",
+                    "placering": 1
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": "",
+            "loppTid": "Prisutdelning när alla är på land",
+            "loppInfo": "",
+            "banor": [],
+            "info": true
+        },
+        {
+            "loppnummer": 13,
+            "loppTid": "16:30",
+            "loppInfo": "OC2 Försök",
+            "banor": [
+                {
+                    "bana": "16:30 -1",
+                    "namn": "Peter & Karin",
+                    "tid": "01:19.32",
+                    "placering": 6
+                },
+                {
+                    "bana": "16:30 -2",
+                    "namn": "Tobias & Erica",
+                    "tid": "01:49.60",
+                    "placering": 12
+                },
+                {
+                    "bana": "16:40 -1",
+                    "namn": "Emile & Frieda",
+                    "tid": "01:18.01",
+                    "placering": 5
+                },
+                {
+                    "bana": "16:40 -2",
+                    "namn": "Marcus & Maja",
+                    "tid": "01:20.91",
+                    "placering": 7
+                },
+                {
+                    "bana": "16:50 -1",
+                    "namn": "Henrik & Lena",
+                    "tid": "01:22.26",
+                    "placering": 9
+                },
+                {
+                    "bana": "16:50 -2",
+                    "namn": "Linus & Anneka",
+                    "tid": "01:24.30",
+                    "placering": 11
+                },
+                {
+                    "bana": "17:00 -1",
+                    "namn": "Sophie & Johan",
+                    "tid": "01:13.29",
+                    "placering": 1
+                },
+                {
+                    "bana": "17:00 -2",
+                    "namn": "Axel & Ida",
+                    "tid": "01:16.19",
+                    "placering": 3
+                },
+                {
+                    "bana": "17:10 -1",
+                    "namn": "Lukas & Vera",
+                    "tid": "01:14.46",
+                    "placering": 2
+                },
+                {
+                    "bana": "17:10 -2",
+                    "namn": "Kim & Marina",
+                    "tid": "01:21.79",
+                    "placering": 8
+                },
+                {
+                    "bana": "17:20 -1",
+                    "namn": "Frieda & Alex",
+                    "tid": "01:17.01",
+                    "placering": 4
+                },
+                {
+                    "bana": "17:20 -2",
+                    "namn": "Henning & Sophie",
+                    "tid": "01:22.30",
+                    "placering": 10
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": 15,
+            "loppTid": "17:00",
+            "loppInfo": "OC2 Final ",
+            "banor": [
+                {
+                    "bana": 1,
+                    "namn": "Sophie & Johan",
+                    "tid": "01:13.27",
+                    "placering": 1
+                },
+                {
+                    "bana": 2,
+                    "namn": "Lukas & Vera",
+                    "tid": "01:13.62",
+                    "placering": 2
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": "",
+            "loppTid": "extralopp",
+            "loppInfo": "Extralopp",
+            "banor": [],
+            "info": false
+        },
+        {
+            "loppnummer": "",
+            "loppTid": "extralopp",
+            "loppInfo": "Extralopp",
+            "banor": [],
+            "info": false
+        },
+        {
+            "loppnummer": "",
+            "loppTid": "extralopp",
+            "loppInfo": "Extralopp",
+            "banor": [],
+            "info": false
+        },
+        {
+            "loppnummer": "",
+            "loppTid": "extralopp",
+            "loppInfo": "Extralopp",
+            "banor": [],
+            "info": false
+        },
+        {
+            "loppnummer": "",
+            "loppTid": "Söndag",
+            "loppInfo": "",
+            "banor": [],
+            "info": true
+        },
+        {
+            "loppnummer": 16,
+            "loppTid": "08:30",
+            "loppInfo": "Mix Försök 1 200",
+            "banor": [
+                {
+                    "bana": 3,
+                    "namn": "ÖKS 3",
+                    "tid": "00:57.13",
+                    "placering": 3
+                },
+                {
+                    "bana": 4,
+                    "namn": "SPK",
+                    "tid": "01:00.26",
+                    "placering": 5
+                },
+                {
+                    "bana": 5,
+                    "namn": "ÖKS 2",
+                    "tid": "00:53.27",
+                    "placering": 2
+                },
+                {
+                    "bana": 6,
+                    "namn": "Kungälv 1",
+                    "tid": "00:52.21",
+                    "placering": 1
+                },
+                {
+                    "bana": 7,
+                    "namn": "Moälven",
+                    "tid": "00:58.18",
+                    "placering": 4
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": 17,
+            "loppTid": "08:45",
+            "loppInfo": "Mix Försök 2 200",
+            "banor": [
+                {
+                    "bana": 3,
+                    "namn": "Halmstad",
+                    "tid": "00:54.08",
+                    "placering": 2
+                },
+                {
+                    "bana": 4,
+                    "namn": "Kungälv 2",
+                    "tid": "00:54.32",
+                    "placering": 3
+                },
+                {
+                    "bana": 5,
+                    "namn": "ÖKS 1",
+                    "tid": "00:53.27",
+                    "placering": 1
+                },
+                {
+                    "bana": 6,
+                    "namn": "Malmö",
+                    "tid": "00:54.84",
+                    "placering": 4
+                },
+                {
+                    "bana": 7,
+                    "namn": "Huskvarna",
+                    "tid": "00:55.10",
+                    "placering": 5
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": 18,
+            "loppTid": "09:15",
+            "loppInfo": "Mix mellanheat 1 200",
+            "banor": [
+                {
+                    "bana": 3,
+                    "namn": "SPK",
+                    "tid": "00:54.86",
+                    "placering": 2
+                },
+                {
+                    "bana": 4,
+                    "namn": "Malmö",
+                    "tid": "00:55.88",
+                    "placering": 4
+                },
+                {
+                    "bana": 5,
+                    "namn": "ÖKS 2",
+                    "tid": "00:53.59",
+                    "placering": 1
+                },
+                {
+                    "bana": 6,
+                    "namn": "Kungälv 2",
+                    "tid": "00:55.39",
+                    "placering": 3
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": 19,
+            "loppTid": "09:30",
+            "loppInfo": "Mix mellanheat 2 200",
+            "banor": [
+                {
+                    "bana": 3,
+                    "namn": "Huskvarna",
+                    "tid": "00:55.72",
+                    "placering": 2
+                },
+                {
+                    "bana": 4,
+                    "namn": "Moälven",
+                    "tid": "00:59.46",
+                    "placering": 4
+                },
+                {
+                    "bana": 5,
+                    "namn": "Halmstad",
+                    "tid": "00:53.54",
+                    "placering": 1
+                },
+                {
+                    "bana": 6,
+                    "namn": "ÖKS 3",
+                    "tid": "00:55.91",
+                    "placering": 3
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": 20,
+            "loppTid": "10:00",
+            "loppInfo": "Mix Final 200",
+            "banor": [
+                {
+                    "bana": 3,
+                    "namn": "SPK",
+                    "tid": "00:53.82",
+                    "placering": 5
+                },
+                {
+                    "bana": 4,
+                    "namn": "ÖKS 2",
+                    "tid": "00:53.53",
+                    "placering": 4
+                },
+                {
+                    "bana": 5,
+                    "namn": "ÖKS 1",
+                    "tid": "00:53.25",
+                    "placering": 3
+                },
+                {
+                    "bana": 6,
+                    "namn": "Kungälv 1",
+                    "tid": "00:52.69",
+                    "placering": 2
+                },
+                {
+                    "bana": 7,
+                    "namn": "Halmstad",
+                    "tid": "00:52.43",
+                    "placering": 1
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": 21,
+            "loppTid": "10:40",
+            "loppInfo": "Dam Försök 1 200",
+            "banor": [
+                {
+                    "bana": 4,
+                    "namn": "Kungälv ",
+                    "tid": "00:57.49",
+                    "placering": 1
+                },
+                {
+                    "bana": 5,
+                    "namn": "ÖKS 1",
+                    "tid": "00:59.17",
+                    "placering": 2
+                },
+                {
+                    "bana": 6,
+                    "namn": "ÖKS 2",
+                    "tid": "00:59.35",
+                    "placering": 3
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": 22,
+            "loppTid": "10:55",
+            "loppInfo": "Dam Försök 2 200",
+            "banor": [
+                {
+                    "bana": 4,
+                    "namn": "Malmö",
+                    "tid": "01:05.16",
+                    "placering": 3
+                },
+                {
+                    "bana": 5,
+                    "namn": "Tibro",
+                    "tid": "01:01.51",
+                    "placering": 1
+                },
+                {
+                    "bana": 6,
+                    "namn": "Moälven",
+                    "tid": "01:02.49",
+                    "placering": 2
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": 23,
+            "loppTid": "11:10",
+            "loppInfo": "Open Final 200",
+            "banor": [
+                {
+                    "bana": 3,
+                    "namn": "Malmö",
+                    "tid": "00:53.49",
+                    "placering": 4
+                },
+                {
+                    "bana": 4,
+                    "namn": "ÖKS 1",
+                    "tid": "00:51.74",
+                    "placering": 1
+                },
+                {
+                    "bana": 5,
+                    "namn": "ÖKS 2",
+                    "tid": "00.52.81",
+                    "placering": 3
+                },
+                {
+                    "bana": 6,
+                    "namn": "Huskvarna",
+                    "tid": "00:55.66",
+                    "placering": 5
+                },
+                {
+                    "bana": 7,
+                    "namn": "Kungälv ",
+                    "tid": "00:51.92",
+                    "placering": 2
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": 24,
+            "loppTid": "11:25",
+            "loppInfo": "Dam Mellanheat 200",
+            "banor": [
+                {
+                    "bana": 3,
+                    "namn": "ÖKS 2",
+                    "tid": "00:57.44",
+                    "placering": 2
+                },
+                {
+                    "bana": 4,
+                    "namn": "Malmö",
+                    "tid": "01:01.93",
+                    "placering": 4
+                },
+                {
+                    "bana": 5,
+                    "namn": "ÖKS 1",
+                    "tid": "00:56.26",
+                    "placering": 1
+                },
+                {
+                    "bana": 6,
+                    "namn": "Moälven",
+                    "tid": "01:00.56",
+                    "placering": 3
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": 25,
+            "loppTid": "11:55",
+            "loppInfo": "Dam final 200",
+            "banor": [
+                {
+                    "bana": 3,
+                    "namn": "ÖKS 2",
+                    "tid": "00:55.46",
+                    "placering": 3
+                },
+                {
+                    "bana": 4,
+                    "namn": "ÖKS 1",
+                    "tid": "00:54.72",
+                    "placering": 2
+                },
+                {
+                    "bana": 5,
+                    "namn": "Tibro",
+                    "tid": "00:57.94",
+                    "placering": 4
+                },
+                {
+                    "bana": 6,
+                    "namn": "Kungälv ",
+                    "tid": "00:54.22",
+                    "placering": 1
+                },
+                {
+                    "bana": 7,
+                    "namn": "Moälven",
+                    "tid": "00:58.21",
+                    "placering": 5
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": "",
+            "loppTid": "Lunchpaus 12:01-13:00",
+            "loppInfo": "",
+            "banor": [],
+            "info": true
+        },
+        {
+            "loppnummer": 26,
+            "loppTid": "13:00",
+            "loppInfo": "Mix Final 1 2000",
+            "banor": [
+                {
+                    "bana": 3,
+                    "namn": "Halmstad",
+                    "tid": "11:14.74",
+                    "placering": 3
+                },
+                {
+                    "bana": 4,
+                    "namn": "Moälven",
+                    "tid": "12:59.27",
+                    "placering": 9
+                },
+                {
+                    "bana": 5,
+                    "namn": "ÖKS 3",
+                    "tid": "11:54.75",
+                    "placering": 7
+                },
+                {
+                    "bana": 6,
+                    "namn": "Kungälv 2",
+                    "tid": "SCR",
+                    "placering": "-"
+                },
+                {
+                    "bana": 7,
+                    "namn": "Huskvarna",
+                    "tid": "12:34.52",
+                    "placering": 8
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": 27,
+            "loppTid": "13:20",
+            "loppInfo": "Mix Final 2 2000",
+            "banor": [
+                {
+                    "bana": 3,
+                    "namn": "Malmö",
+                    "tid": "11:43.46",
+                    "placering": 6
+                },
+                {
+                    "bana": 4,
+                    "namn": "SPK",
+                    "tid": "11:38.80",
+                    "placering": 5
+                },
+                {
+                    "bana": 5,
+                    "namn": "ÖKS 2",
+                    "tid": "11:08.71",
+                    "placering": 1
+                },
+                {
+                    "bana": 6,
+                    "namn": "ÖKS 1",
+                    "tid": "11:16.38",
+                    "placering": 4
+                },
+                {
+                    "bana": 7,
+                    "namn": "Kungälv 1",
+                    "tid": "11.13.93",
+                    "placering": 2
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": 28,
+            "loppTid": "14:20",
+            "loppInfo": "Dam Final 1 - 2000m",
+            "banor": [
+                {
+                    "bana": 4,
+                    "namn": "Malmö",
+                    "tid": "14:32.70",
+                    "placering": 6
+                },
+                {
+                    "bana": 5,
+                    "namn": "Moälven",
+                    "tid": "13:38.99",
+                    "placering": 5
+                },
+                {
+                    "bana": 6,
+                    "namn": "Tibro",
+                    "tid": "13:23.33",
+                    "placering": 4
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": 29,
+            "loppTid": "14:40",
+            "loppInfo": "Dam Final 2 2000",
+            "banor": [
+                {
+                    "bana": 4,
+                    "namn": "ÖKS 1",
+                    "tid": "11:52.00",
+                    "placering": 1
+                },
+                {
+                    "bana": 5,
+                    "namn": "ÖKS 2",
+                    "tid": "12:29.32",
+                    "placering": 3
+                },
+                {
+                    "bana": 6,
+                    "namn": "Kungälv 1",
+                    "tid": "12:04.21",
+                    "placering": 2
+                }
+            ],
+            "info": false
+        },
+        {
+            "loppnummer": "",
+            "loppTid": "Prisceremoni Läktaren",
+            "loppInfo": "",
+            "banor": [],
+            "info": true
+        }
+    ]
+}
