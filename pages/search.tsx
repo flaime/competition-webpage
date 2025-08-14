@@ -1,7 +1,8 @@
 import { GetStaticProps } from "next";
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import useSWR from "swr";
+import { useRouter } from "next/router";
 import {
   Badge,
   Card,
@@ -15,19 +16,12 @@ import {
   Stack,
   Table,
   Text,
-  TextInput,
   Title,
 } from "@mantine/core";
 
 import { PreConfiguredHeadermenue } from "../components/PreConfiguredHeadermenue";
 import { getCompetitions, getLiveCompetition } from "../components/helerFile";
-import {
-  Bana,
-  Competiton,
-  LiveData,
-  Metadata,
-  Race,
-} from "../components/entities";
+import { Bana, Competiton, Metadata, Race } from "../components/entities";
 
 interface SearchPageProps {
   competitions: Competiton[];
@@ -92,13 +86,15 @@ type Match = {
   isLive: boolean;
 };
 
-function filterCompetitionByQuery(
+function filterCompetitionByQueries(
   competition: Competiton,
-  query: string,
+  queries: string[],
   isLive: boolean,
 ): Match[] {
-  const q = normalizeStr(query);
-  if (!q) return [];
+  if (!queries || queries.length === 0) return [];
+
+  const qs = queries.map((q) => normalizeStr(q)).filter(Boolean);
+  if (qs.length === 0) return [];
 
   const matches: Match[] = [];
   for (const race of competition.races) {
@@ -106,7 +102,8 @@ function filterCompetitionByQuery(
 
     for (const lane of race.banor) {
       if (!lane?.namn) continue;
-      if (normalizeStr(lane.namn).includes(q)) {
+      const laneName = normalizeStr(lane.namn);
+      if (qs.some((q) => laneName.includes(q))) {
         matches.push({
           competitionName: competition.name,
           competitionPlace: competition.place,
@@ -121,16 +118,13 @@ function filterCompetitionByQuery(
   return matches;
 }
 
-function groupMatches(
-  matches: Match[],
-): Array<{
+function groupMatches(matches: Match[]): Array<{
   key: string;
   competitionName: string;
   competitionPlace?: string | null;
   competitionDates?: string | null;
   races: Array<{ race: Race; lanes: Bana[]; isLive: boolean }>;
 }> {
-  // Group first by competition, then by race number
   const byCompetition = new Map<
     string,
     {
@@ -184,11 +178,27 @@ export const getStaticProps: GetStaticProps<SearchPageProps> = async () => {
   };
 };
 
+function asArray(q: string | string[] | undefined): string[] {
+  if (q === undefined) return [];
+  return Array.isArray(q) ? q : [q];
+}
+
+function arraysEqual(a: string[], b: string[]): boolean {
+  if (a.length !== b.length) return false;
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] !== b[i]) return false;
+  }
+  return true;
+}
+
 export default function SearchPage({
   competitions,
   liveMeta,
 }: SearchPageProps) {
   const { classes } = useStyles();
+  const router = useRouter();
+
+  const [hydrated, setHydrated] = useState(false);
 
   // Build the selector list of competitions including LIVE (if active)
   const competitionOptions = useMemo(() => {
@@ -207,7 +217,7 @@ export default function SearchPage({
     [competitionOptions],
   );
 
-  const [query, setQuery] = useState("");
+  const [queries, setQueries] = useState<string[]>([]);
   const [selectedCompetitions, setSelectedCompetitions] =
     useState<string[]>(allDefaults);
 
@@ -231,16 +241,124 @@ export default function SearchPage({
     },
   );
 
+  // Hydrate state from URL on load/back/forward
+  useEffect(() => {
+    if (!router.isReady) return;
+    const urlNames = asArray(router.query.names);
+    const compParam = (router.query.competitions ?? router.query.comps) as
+      | string
+      | string[]
+      | undefined;
+    const urlComps = asArray(compParam);
+
+    const nextComps = urlComps.length ? urlComps : allDefaults;
+
+    let changed = false;
+    if (!arraysEqual(queries, urlNames)) {
+      setQueries(urlNames);
+      changed = true;
+    }
+    if (!arraysEqual(selectedCompetitions, nextComps)) {
+      setSelectedCompetitions(nextComps);
+      changed = true;
+    }
+    if (changed || !hydrated) {
+      setHydrated(true);
+    }
+  }, [
+    router.isReady,
+    router.query.names,
+    router.query.competitions,
+    router.query.comps,
+    allDefaults,
+    hydrated,
+  ]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Persist state to URL (shallow)
+  useEffect(() => {
+    if (!router.isReady || !hydrated) return;
+
+    const currentNames = asArray(router.query.names);
+    const compParam = (router.query.competitions ?? router.query.comps) as
+      | string
+      | string[]
+      | undefined;
+    const currentComps = asArray(compParam);
+
+    const desiredNames = queries;
+    const desiredComps = selectedCompetitions;
+
+    const nextQuery: Record<string, any> = { ...router.query };
+
+    // Only include names if any selected
+    if (desiredNames.length) nextQuery.names = desiredNames;
+    else delete nextQuery.names;
+
+    // Always persist competitions under canonical 'competitions' param
+    nextQuery.competitions = desiredComps;
+    if ("comps" in nextQuery) delete nextQuery.comps;
+
+    const namesEqual = arraysEqual(currentNames, desiredNames);
+    const compsEqual = arraysEqual(currentComps, desiredComps);
+
+    if (namesEqual && compsEqual) return;
+
+    router.replace(
+      {
+        pathname: router.pathname,
+        query: nextQuery,
+      },
+      undefined,
+      { shallow: true },
+    );
+  }, [queries, selectedCompetitions, hydrated, router.isReady]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const nameOptions = useMemo(() => {
+    const selected = new Set(selectedCompetitions);
+    const names = new Set<string>();
+
+    // Static competitions
+    for (const c of competitions) {
+      if (!selected.has(c.name)) continue;
+      for (const race of c.races) {
+        if (!race?.banor) continue;
+        for (const lane of race.banor) {
+          if (lane?.namn) names.add(lane.namn);
+        }
+      }
+    }
+
+    // Live competition
+    if (
+      liveMeta.livedataActive &&
+      selected.has(liveMeta.liveData.name) &&
+      liveCompetition
+    ) {
+      for (const race of liveCompetition.races) {
+        if (!race?.banor) continue;
+        for (const lane of race.banor) {
+          if (lane?.namn) names.add(lane.namn);
+        }
+      }
+    }
+
+    // Ensure selected query values are always present in the options
+    for (const q of queries) names.add(q);
+
+    return Array.from(names)
+      .sort((a, b) => a.localeCompare(b))
+      .map((n) => ({ value: n, label: n }));
+  }, [competitions, selectedCompetitions, liveMeta, liveCompetition, queries]);
+
   const matches = useMemo(() => {
     const selected = new Set(selectedCompetitions);
-    const q = query.trim();
 
     const results: Match[] = [];
 
     // Static competitions
     for (const c of competitions) {
       if (!selected.has(c.name)) continue;
-      results.push(...filterCompetitionByQuery(c, q, false));
+      results.push(...filterCompetitionByQueries(c, queries, false));
     }
 
     // Live competition (if selected and loaded)
@@ -249,11 +367,13 @@ export default function SearchPage({
       selected.has(liveMeta.liveData.name) &&
       liveCompetition
     ) {
-      results.push(...filterCompetitionByQuery(liveCompetition, q, true));
+      results.push(
+        ...filterCompetitionByQueries(liveCompetition, queries, true),
+      );
     }
 
     return groupMatches(results);
-  }, [competitions, liveCompetition, liveMeta, query, selectedCompetitions]);
+  }, [competitions, liveCompetition, liveMeta, queries, selectedCompetitions]);
 
   const isLiveSelected = selectedCompetitions.includes(
     liveMeta?.liveData?.name ?? "__no_live__",
@@ -271,17 +391,21 @@ export default function SearchPage({
         <Title order={1}>Sök lopp och banor</Title>
         <Text size="sm" className={classes.muted}>
           Filtrera på deltagare/lag (ban-namn) och begränsa till valda
-          tävlingar.
+          tävlingar. Särskilt användbar under live-tävlingar.
         </Text>
 
         <Space h="md" />
 
         <Stack spacing="sm" className={classes.stickyFilters}>
-          <TextInput
+          <MultiSelect
             label="Namn eller lag"
+            data={nameOptions}
+            value={queries}
+            onChange={setQueries}
+            searchable
+            clearable
+            nothingFound="Inga namn funna"
             placeholder='Exempel: "Carl" eller "Huskvarna"'
-            value={query}
-            onChange={(e) => setQuery(e.currentTarget.value)}
           />
           <MultiSelect
             label="Tävlingar"
@@ -297,7 +421,7 @@ export default function SearchPage({
 
         <Space h="md" />
 
-        {!query.trim() ? (
+        {!queries.length ? (
           <Card withBorder radius="md" p="lg">
             <Text size="sm" className={classes.muted}>
               Skriv ett namn eller lag i sökrutan ovan för att se matchande lopp
@@ -306,7 +430,7 @@ export default function SearchPage({
           </Card>
         ) : null}
 
-        {query.trim() &&
+        {queries.length > 0 &&
         liveMeta.livedataActive &&
         isLiveSelected &&
         liveLoading ? (
@@ -328,9 +452,11 @@ export default function SearchPage({
 
         <Space h="xs" />
 
-        {query.trim() && matches.length === 0 ? (
+        {queries.length > 0 && matches.length === 0 ? (
           <Card withBorder radius="md" p="lg">
-            <Text>Inga resultat för “{query}” i de valda tävlingarna.</Text>
+            <Text>
+              Inga resultat för “{queries.join(", ")}” i de valda tävlingarna.
+            </Text>
           </Card>
         ) : null}
 
