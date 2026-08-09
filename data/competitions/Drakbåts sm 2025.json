@@ -1,0 +1,944 @@
+{
+  "status": "success",
+  "place":"Jönköping energi arena",
+  "dates": "20/9-21/9 2025",
+  "data": [
+    {
+      "loppnummer": 1,
+      "loppTid": "08:30",
+      "loppInfo": "Dam 1 - 500m",
+      "banor": [
+        {
+          "bana": 6,
+          "namn": "Indalsälven",
+          "tid": "02:46:72",
+          "placering": 2
+        },
+        {
+          "bana": 7,
+          "namn": "Tibro",
+          "tid": "02:51:70",
+          "placering": 4
+        },
+        {
+          "bana": 8,
+          "namn": "Örnsberg",
+          "tid": "02:33:76",
+          "placering": 1
+        },
+        {
+          "bana": 9,
+          "namn": "Moälven",
+          "tid": "02:49:06",
+          "placering": 3
+        }
+      ],
+      "info": false
+    },
+    {
+      "loppnummer": 2,
+      "loppTid": "08:50",
+      "loppInfo": "Herr 1 - 500m",
+      "banor": [
+        {
+          "bana": 6,
+          "namn": "Örnsberg2",
+          "tid": "02:18:74",
+          "placering": 2
+        },
+        {
+          "bana": 7,
+          "namn": "Kungälv",
+          "tid": "02:19:56",
+          "placering": 3
+        },
+        {
+          "bana": 8,
+          "namn": "Örnsberg1",
+          "tid": "02:18:56",
+          "placering": 1
+        },
+        {
+          "bana": 9,
+          "namn": "Huskvarna",
+          "tid": "02:23:22",
+          "placering": 4
+        }
+      ],
+      "info": false
+    },
+    {
+      "loppnummer": 3,
+      "loppTid": "09:30",
+      "loppInfo": "Dam 2 - 500m",
+      "banor": [
+        {
+          "bana": 6,
+          "namn": "Indalsälven",
+          "tid": "02:44:62",
+          "placering": 2
+        },
+        {
+          "bana": 7,
+          "namn": "Moälven",
+          "tid": "02:46:10",
+          "placering": 3
+        },
+        {
+          "bana": 8,
+          "namn": "Örnsberg",
+          "tid": "02:35:94",
+          "placering": 1
+        },
+        {
+          "bana": 9,
+          "namn": "Tibro",
+          "tid": "02:47:64",
+          "placering": 4
+        }
+      ],
+      "info": false
+    },
+    {
+      "loppnummer": 4,
+      "loppTid": "09:50",
+      "loppInfo": "Herr 2 - 500m",
+      "banor": [
+        {
+          "bana": 6,
+          "namn": "Örnsberg1",
+          "tid": "02:16:06",
+          "placering": 1
+        },
+        {
+          "bana": 7,
+          "namn": "Örnsberg2",
+          "tid": "02:16:90",
+          "placering": 2
+        },
+        {
+          "bana": 8,
+          "namn": "Huskvarna",
+          "tid": "02:22:52",
+          "placering": 3
+        },
+        {
+          "bana": 9,
+          "namn": "Kungälv",
+          "tid": "02:23:36",
+          "placering": 4
+        }
+      ],
+      "info": false
+    },
+    {
+      "loppnummer": 5,
+      "loppTid": "10:30",
+      "loppInfo": "Dam 1 - 200m",
+      "banor": [
+        {
+          "bana": 6,
+          "namn": "Indalsälven",
+          "tid": "01:03:94",
+          "placering": 4
+        },
+        {
+          "bana": 7,
+          "namn": "Tibro",
+          "tid": "01:03:90",
+          "placering": 3
+        },
+        {
+          "bana": 8,
+          "namn": "Örnsberg",
+          "tid": "00:59:54",
+          "placering": 1
+        },
+        {
+          "bana": 9,
+          "namn": "Moälven",
+          "tid": "01:03:52",
+          "placering": 2
+        }
+      ],
+      "info": false
+    },
+    {
+      "loppnummer": 6,
+      "loppTid": "10:50",
+      "loppInfo": "Herr 1 - 200m",
+      "banor": [
+        {
+          "bana": 6,
+          "namn": "Örnsberg2",
+          "tid": "00:53:94",
+          "placering": 1
+        },
+        {
+          "bana": 7,
+          "namn": "Kungälv",
+          "tid": "00:55:56",
+          "placering": 4
+        },
+        {
+          "bana": 8,
+          "namn": "Örnsberg1",
+          "tid": "00:54:68",
+          "placering": 2
+        },
+        {
+          "bana": 9,
+          "namn": "Huskvarna",
+          "tid": "00:55:20",
+          "placering": 3
+        }
+      ],
+      "info": false
+    },
+    {
+      "loppnummer": 7,
+      "loppTid": "11:30",
+      "loppInfo": "Dam 2 - 200m",
+      "banor": [
+        {
+          "bana": 5,
+          "namn": "Indalsälven",
+          "tid": "01:04:72",
+          "placering": 2
+        },
+        {
+          "bana": 6,
+          "namn": "Moälven",
+          "tid": "01:05:18",
+          "placering": 3
+        },
+        {
+          "bana": 7,
+          "namn": "Örnsberg",
+          "tid": "01:00:32",
+          "placering": 1
+        },
+        {
+          "bana": 8,
+          "namn": "Tibro",
+          "tid": "01:06:08",
+          "placering": 4
+        }
+      ],
+      "info": false
+    },
+    {
+      "loppnummer": 8,
+      "loppTid": "11:50",
+      "loppInfo": "Herr 2 - 200m",
+      "banor": [
+        {
+          "bana": 5,
+          "namn": "Örnsberg1",
+          "tid": "00:54:56",
+          "placering": 1
+        },
+        {
+          "bana": 6,
+          "namn": "Örnsberg2",
+          "tid": "00:54:78",
+          "placering": 2
+        },
+        {
+          "bana": 7,
+          "namn": "Huskvarna",
+          "tid": "00:55:26",
+          "placering": 3
+        },
+        {
+          "bana": 8,
+          "namn": "Kungälv",
+          "tid": "00:55:84",
+          "placering": 4
+        }
+      ],
+      "info": false
+    },
+    {
+      "loppnummer": "",
+      "loppTid": "",
+      "loppInfo": "Lunchpaus",
+      "banor": [],
+      "info": true
+    },
+    {
+      "loppnummer": 9,
+      "loppTid": "14:00",
+      "loppInfo": "Dam - 2000m",
+      "banor": [
+        {
+          "bana": 5,
+          "namn": "Tibro",
+          "tid": "14:09:57",
+          "placering": 3
+        },
+        {
+          "bana": 6,
+          "namn": "Moälven",
+          "tid": "14:10:46",
+          "placering": 4
+        },
+        {
+          "bana": 7,
+          "namn": "Indalsälven",
+          "tid": "13:52:51",
+          "placering": 2
+        },
+        {
+          "bana": 8,
+          "namn": "Örnsberg",
+          "tid": "12:36:42",
+          "placering": 1
+        }
+      ],
+      "info": false
+    },
+    {
+      "loppnummer": 10,
+      "loppTid": "14:45",
+      "loppInfo": "Herr - 2000m",
+      "banor": [
+        {
+          "bana": 5,
+          "namn": "Örnsberg1",
+          "tid": "11:02:64",
+          "placering": 2
+        },
+        {
+          "bana": 6,
+          "namn": "Örnsberg2",
+          "tid": "10:57:44",
+          "placering": 1
+        },
+        {
+          "bana": 7,
+          "namn": "Kungälv",
+          "tid": "11:15:90",
+          "placering": 3
+        },
+        {
+          "bana": 8,
+          "namn": "Huskvarna",
+          "tid": "11:26:20",
+          "placering": 4
+        }
+      ],
+      "info": false
+    },
+    {
+      "loppnummer": 11,
+      "loppTid": "15:15",
+      "loppInfo": "Isabellas lopp - 200m",
+      "banor": [
+        {
+          "bana": 7,
+          "namn": "Lag Syd",
+          "tid": "01:06:08",
+          "placering": 2
+        },
+        {
+          "bana": 8,
+          "namn": "Lag Nord",
+          "tid": "01:05:40",
+          "placering": 1
+        }
+      ],
+      "info": false
+    },
+    {
+      "loppnummer": 12,
+      "loppTid": "15:30",
+      "loppInfo": "Isabellas lopp - 500m",
+      "banor": [
+        {
+          "bana": 7,
+          "namn": "Lag Syd",
+          "tid": "02:54:38",
+          "placering": 1
+        },
+        {
+          "bana": 8,
+          "namn": "Lag Nord",
+          "tid": "02:54:48",
+          "placering": 2
+        }
+      ],
+      "info": false
+    },
+    {
+      "loppnummer": "",
+      "loppTid": "16:00",
+      "loppInfo": "Prisutdelning",
+      "banor": [],
+      "info": true
+    },
+    {
+      "loppnummer": 13,
+      "loppTid": "",
+      "loppInfo": "Dam- 500m Resultat (lopp 1+3)",
+      "banor": [
+        {
+          "bana": 2,
+          "namn": "Indalsälven",
+          "tid": "05:31.34",
+          "placering": 2
+        },
+        {
+          "bana": 4,
+          "namn": "Tibro",
+          "tid": "05:39.34",
+          "placering": 4
+        },
+        {
+          "bana": 1,
+          "namn": "Örnsberg",
+          "tid": "05:09.70",
+          "placering": 1
+        },
+        {
+          "bana": 3,
+          "namn": "Moälven",
+          "tid": "05:35.16",
+          "placering": 3
+        }
+      ],
+      "info": false
+    },
+    {
+      "loppnummer": 14,
+      "loppTid": "",
+      "loppInfo": "Herr - 500m Resultat (lopp 2+4)",
+      "banor": [
+        {
+          "bana": 2,
+          "namn": "Örnsberg2",
+          "tid": "04:35.64",
+          "placering": 2
+        },
+        {
+          "bana": 3,
+          "namn": "Kungälv",
+          "tid": "04:42.92",
+          "placering": 3
+        },
+        {
+          "bana": 1,
+          "namn": "Örnsberg1",
+          "tid": "04:34.62",
+          "placering": 1
+        },
+        {
+          "bana": 4,
+          "namn": "Huskvarna",
+          "tid": "04:45.74",
+          "placering": 4
+        }
+      ],
+      "info": false
+    },
+    {
+      "loppnummer": 15,
+      "loppTid": "",
+      "loppInfo": "Dam - 200m Resultat (lopp 5+7)",
+      "banor": [
+        {
+          "bana": 2,
+          "namn": "Indalsälven",
+          "tid": "02:08.66",
+          "placering": 2
+        },
+        {
+          "bana": 4,
+          "namn": "Tibro",
+          "tid": "02:09.98",
+          "placering": 4
+        },
+        {
+          "bana": 1,
+          "namn": "Örnsberg",
+          "tid": "01:59.86",
+          "placering": 1
+        },
+        {
+          "bana": 3,
+          "namn": "Moälven",
+          "tid": "02:08.70",
+          "placering": 3
+        }
+      ],
+      "info": false
+    },
+    {
+      "loppnummer": 16,
+      "loppTid": "",
+      "loppInfo": "Herr - 200m Resultat (lopp 6+8)",
+      "banor": [
+        {
+          "bana": 1,
+          "namn": "Örnsberg2",
+          "tid": "01:48.72",
+          "placering": 1
+        },
+        {
+          "bana": 4,
+          "namn": "Kungälv",
+          "tid": "01:51.40",
+          "placering": 4
+        },
+        {
+          "bana": 2,
+          "namn": "Örnsberg1",
+          "tid": "01:49.24",
+          "placering": 2
+        },
+        {
+          "bana": 3,
+          "namn": "Huskvarna",
+          "tid": "01:50.46",
+          "placering": 3
+        }
+      ],
+      "info": false
+    },
+    {
+      "loppnummer": "",
+      "loppTid": "",
+      "loppInfo": "Söndag",
+      "banor": [],
+      "info": true
+    },
+    {
+      "loppnummer": 17,
+      "loppTid": "08:30",
+      "loppInfo": "Mix 1 - 500m",
+      "banor": [
+        {
+          "bana": 3,
+          "namn": "Huskvarna",
+          "tid": "02:25:54",
+          "placering": 5
+        },
+        {
+          "bana": 4,
+          "namn": "Spk",
+          "tid": "02:24:08",
+          "placering": 4
+        },
+        {
+          "bana": 5,
+          "namn": "Örnsberg1",
+          "tid": "02:23:02",
+          "placering": 2
+        },
+        {
+          "bana": 6,
+          "namn": "Kungälv",
+          "tid": "02:23:08",
+          "placering": 3
+        },
+        {
+          "bana": 7,
+          "namn": "Örnsberg2",
+          "tid": "02:21:74",
+          "placering": 1
+        },
+        {
+          "bana": 8,
+          "namn": "Moälven",
+          "tid": "02:41:26",
+          "placering": 6
+        }
+      ],
+      "info": false
+    },
+    {
+      "loppnummer": 18,
+      "loppTid": "09:30",
+      "loppInfo": "Mix 2 - 500m",
+      "banor": [
+        {
+          "bana": 3,
+          "namn": "Kungälv",
+          "tid": "02:25:02",
+          "placering": 5
+        },
+        {
+          "bana": 4,
+          "namn": "Moälven",
+          "tid": "02:36:68",
+          "placering": 6
+        },
+        {
+          "bana": 5,
+          "namn": "Huskvarna",
+          "tid": "02:23:44",
+          "placering": 3
+        },
+        {
+          "bana": 6,
+          "namn": "Örnsberg2",
+          "tid": "02:22:74",
+          "placering": 1
+        },
+        {
+          "bana": 7,
+          "namn": "Örnsberg1",
+          "tid": "02:22:92",
+          "placering": 2
+        },
+        {
+          "bana": 8,
+          "namn": "Spk",
+          "tid": "02:24:56",
+          "placering": 4
+        }
+      ],
+      "info": false
+    },
+    {
+      "loppnummer": 19,
+      "loppTid": "10:30",
+      "loppInfo": "Mix 1 - 200m",
+      "banor": [
+        {
+          "bana": 3,
+          "namn": "Huskvarna",
+          "tid": "00:56:64",
+          "placering": 3
+        },
+        {
+          "bana": 4,
+          "namn": "Spk",
+          "tid": "00:57:16",
+          "placering": 4
+        },
+        {
+          "bana": 5,
+          "namn": "Örnsberg1",
+          "tid": "00:56:10",
+          "placering": 1
+        },
+        {
+          "bana": 6,
+          "namn": "Kungälv",
+          "tid": "00:57:56",
+          "placering": 5
+        },
+        {
+          "bana": 7,
+          "namn": "Örnsberg2",
+          "tid": "00:56:40",
+          "placering": 2
+        },
+        {
+          "bana": 8,
+          "namn": "Moälven",
+          "tid": "01:00:04",
+          "placering": 6
+        }
+      ],
+      "info": false
+    },
+    {
+      "loppnummer": 20,
+      "loppTid": "11:30",
+      "loppInfo": "Mix 2 - 200m",
+      "banor": [
+        {
+          "bana": 3,
+          "namn": "Kungälv",
+          "tid": "00:57:84",
+          "placering": 4
+        },
+        {
+          "bana": 4,
+          "namn": "Moälven",
+          "tid": "01:01:46",
+          "placering": 6
+        },
+        {
+          "bana": 5,
+          "namn": "Huskvarna",
+          "tid": "00:55:80",
+          "placering": 2
+        },
+        {
+          "bana": 6,
+          "namn": "Örnsberg2",
+          "tid": "00:58:12",
+          "placering": 5
+        },
+        {
+          "bana": 7,
+          "namn": "Örnsberg1",
+          "tid": "00:55:76",
+          "placering": 1
+        },
+        {
+          "bana": 8,
+          "namn": "Spk",
+          "tid": "00:56:14",
+          "placering": 3
+        }
+      ],
+      "info": false
+    },
+    {
+      "loppnummer": "",
+      "loppTid": "",
+      "loppInfo": "Lunchpaus",
+      "banor": [],
+      "info": true
+    },
+    {
+      "loppnummer": 21,
+      "loppTid": "13:15",
+      "loppInfo": "Mix - 2000m",
+      "banor": [
+        {
+          "bana": 3,
+          "namn": "Moälven",
+          "tid": "13:57:05",
+          "placering": 6
+        },
+        {
+          "bana": 4,
+          "namn": "Huskvarna",
+          "tid": "11:50:70",
+          "placering": 2
+        },
+        {
+          "bana": 5,
+          "namn": "SPK",
+          "tid": "12:08:25",
+          "placering": 5
+        },
+        {
+          "bana": 6,
+          "namn": "Kungälv",
+          "tid": "12:02:59",
+          "placering": 4
+        },
+        {
+          "bana": 7,
+          "namn": "Örnsberg1",
+          "tid": "11:59:59",
+          "placering": 3
+        },
+        {
+          "bana": 8,
+          "namn": "Örnsberg2",
+          "tid": "11:39:40",
+          "placering": 1
+        }
+      ],
+      "info": false
+    },
+    {
+      "loppnummer": 22,
+      "loppTid": "13:50",
+      "loppInfo": "OC2 Försök",
+      "banor": [
+        {
+          "bana": "13:50- 1",
+          "namn": "SPK1",
+          "tid": "00:52:84",
+          "placering": 5
+        },
+        {
+          "bana": "13:50 - 2",
+          "namn": "Örnsberg1",
+          "tid": "00:51:44",
+          "placering": 1
+        },
+        {
+          "bana": "14:00 - 1",
+          "namn": "Katrineholm1",
+          "tid": "01:25:70",
+          "placering": 12
+        },
+        {
+          "bana": "14:00 - 2",
+          "namn": "SPK2",
+          "tid": "00:52:30",
+          "placering": 4
+        },
+        {
+          "bana": "14:10 - 1",
+          "namn": "Örnsbers2",
+          "tid": "00:52:26",
+          "placering": 3
+        },
+        {
+          "bana": "14:10 - 2",
+          "namn": "Tibro",
+          "tid": "00:51:86",
+          "placering": 2
+        },
+        {
+          "bana": "14:20 - 1",
+          "namn": "Kartineholm2",
+          "tid": "01:14:10",
+          "placering": 11
+        },
+        {
+          "bana": "14:20 - 2",
+          "namn": "SPK3",
+          "tid": "01:10:38",
+          "placering": 10
+        },
+        {
+          "bana": "14:45 - 1",
+          "namn": "Huskvarna",
+          "tid": "00:52:44",
+          "placering": 8
+        },
+        {
+          "bana": "14:30 - 2",
+          "namn": "Katrineholm3",
+          "tid": "01:06:06",
+          "placering": 9
+        },
+        {
+          "bana": "14:40 - 1",
+          "namn": "Örnsberg4",
+          "tid": "00:59:70",
+          "placering": 7
+        },
+        {
+          "bana": "14:40 - 2",
+          "namn": "Örnsberg5",
+          "tid": "00:57:12",
+          "placering": 6
+        },
+        {
+          "bana": "14:30 - 1",
+          "namn": "Örnsberg3",
+          "tid": "01:04:46",
+          "placering": "Diskad"
+        }
+      ],
+      "info": false
+    },
+    {
+      "loppnummer": 23,
+      "loppTid": "14:55",
+      "loppInfo": "OC2 Final ",
+      "banor": [
+        {
+          "bana": 1,
+          "namn": "Örnsberg1",
+          "tid": "00:50:34",
+          "placering": 1
+        },
+        {
+          "bana": 2,
+          "namn": "Tibro",
+          "tid": "00:52:04",
+          "placering": 2
+        }
+      ],
+      "info": false
+    },
+    {
+      "loppnummer": "",
+      "loppTid": "15:00",
+      "loppInfo": "Prisceremoni",
+      "banor": [],
+      "info": true
+    },
+    {
+      "loppnummer": 24,
+      "loppTid": "",
+      "loppInfo": "Mix - 500m Resultat (lopp 17+18)",
+      "banor": [
+        {
+          "bana": 5,
+          "namn": "Huskvarna",
+          "tid": "04:48.98",
+          "placering": 5
+        },
+        {
+          "bana": 4,
+          "namn": "Spk",
+          "tid": "04:48.64",
+          "placering": 4
+        },
+        {
+          "bana": 2,
+          "namn": "Örnsberg1",
+          "tid": "04:45.94",
+          "placering": 2
+        },
+        {
+          "bana": 3,
+          "namn": "Kungälv",
+          "tid": "04:48.10",
+          "placering": 3
+        },
+        {
+          "bana": 1,
+          "namn": "Örnsberg2",
+          "tid": "04:44.48",
+          "placering": 1
+        },
+        {
+          "bana": 6,
+          "namn": "Moälven",
+          "tid": "05:17.94",
+          "placering": 6
+        }
+      ],
+      "info": false
+    },
+    {
+      "loppnummer": 25,
+      "loppTid": "",
+      "loppInfo": "Mix - 200m Resultat (lopp 19+20)",
+      "banor": [
+        {
+          "bana": 2,
+          "namn": "Huskvarna",
+          "tid": "01:52.44",
+          "placering": 2
+        },
+        {
+          "bana": 3,
+          "namn": "Spk",
+          "tid": "01:53.30",
+          "placering": 3
+        },
+        {
+          "bana": 1,
+          "namn": "Örnsberg1",
+          "tid": "01:51.86",
+          "placering": 1
+        },
+        {
+          "bana": 5,
+          "namn": "Kungälv",
+          "tid": "01:55.40",
+          "placering": 5
+        },
+        {
+          "bana": 4,
+          "namn": "Örnsberg2",
+          "tid": "01:54.52",
+          "placering": 4
+        },
+        {
+          "bana": 6,
+          "namn": "Moälven",
+          "tid": "02:01.50",
+          "placering": 6
+        }
+      ],
+      "info": false
+    }
+  ]
+}

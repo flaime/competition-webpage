@@ -1,5 +1,5 @@
 {
-    "livedataActive": true,
+    "livedataActive": false,
     "liveData":{
             "url":"https://www.cachethings.com/api/fetch?url=https://script.google.com/macros/s/AKfycbwTP8scbtPr0CcI1Wr9amfiaFBGtz6_xcUvHTKohtlWtTj7XLpWBDmIVpbhcgBviiCyXw/exec",
             "info":"2025 års drakbåts SM i Katrineholm",
